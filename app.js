@@ -5,11 +5,9 @@
 var config = require('./config.js');
 var express = require('express'),
     routes = require('./routes');
-console.log(config['config']['app_port'])
 var app = module.exports = express.createServer();
 
 // Configuration
-
 app.configure(function(){
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
