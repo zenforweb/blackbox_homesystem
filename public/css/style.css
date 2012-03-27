@@ -1,13 +1,4 @@
-body {
-  background-image: url("http://politeauthority.com/remote/blackbox/images/main/gradient-1.png");
-  background-repeat: repeat-x;
-  background-attachment: fixed;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-wrap {
-  width: 1110px;
-  margin: auto;
-}
+@import 'reset.css';
 *:focus {
   outline: none;
 }
@@ -19,6 +10,27 @@ wrap {
 }
 .floatLeft {
   float: left;
+}
+#desktop {
+  background-image: url("http://politeauthority.com/remote/blackbox/images/main/gradient-1.png");
+  background-repeat: repeat-x;
+  background-attachment: fixed;
+}
+#ipad {
+  width: 1000px;
+}
+#iphone {
+  width: 400px;
+}
+#mobile {
+  width: 200px;
+}
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+#wrap {
+  width: 1110px;
+  margin: auto;
 }
 .button {
   background-color: #fff;
