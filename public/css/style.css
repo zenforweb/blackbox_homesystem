@@ -11,13 +11,30 @@
 .floatLeft {
   float: left;
 }
+.loading {
+  background-image: url("/images/ajax-loader.gif");
+  background-repeat: no-repeat;
+  height: 33px;
+  width: 33px;
+}
 #desktop {
   background-image: url("http://politeauthority.com/remote/blackbox/images/main/gradient-1.png");
   background-repeat: repeat-x;
   background-attachment: fixed;
 }
+#desktop #wrap {
+  width: 1110px;
+  margin: auto;
+}
 #ipad {
+  background-image: url("http://politeauthority.com/remote/blackbox/images/main/gradient-1.png");
+  background-repeat: repeat-x;
+  background-attachment: fixed;
   width: 1000px;
+}
+#ipad #wrap {
+  width: 1000px;
+  margin: auto;
 }
 #iphone {
   width: 400px;
@@ -27,10 +44,6 @@
 }
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
-}
-#wrap {
-  width: 1110px;
-  margin: auto;
 }
 .button {
   background-color: #fff;
@@ -55,8 +68,12 @@ body {
   margin: auto auto;
 }
 #login {
-  margin-right: 350px;
+  margin-right: 175px;
   margin-top: -180px;
+}
+#loading {
+  margin-top: -146px;
+  margin-right: 130px;
 }
 .frontEndInput {
   background-image: url("http://politeauthority.com/remote/blackbox/images/gfx/input.png");
