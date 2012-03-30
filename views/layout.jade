@@ -1,10 +1,15 @@
 !!!
 html
   head
-    title= 'BlackBox'
+    title= 'blackbox'
     script(src='/js/jquery-1.7.1.min.js', type='text/javascript')
+    script(src='/js/jquery.md5.js', type='text/javascript')
     script(src='/js/jquery-ui-1.8.18.custom.min.js', type='text/javascript')
     script(src='/js/browser_detection.js', type='text/javascript')
     script(src='/js/main.js', type='text/javascript')
+    -//  != "<script type='text/javascript'>"
+    -//  != "var a='"+test+"';"
+    -//  != "console.log(a)"
+    -//!= "</script>"*/
     link(rel='stylesheet', href='/css/style.css')
   body!= body

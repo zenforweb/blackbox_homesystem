@@ -1,7 +1,5 @@
 $(document).ready(function(){
 
-	var base_url = '10.1.10.80:3636';
-
 	$('form').submit( function(ev){
 		ev.preventDefault();
 		var form    	= $(this),
@@ -31,13 +29,13 @@ $(document).ready(function(){
 		if ( form_validate( form ) ){
 			form.hide('1000', function(){ loading.show(); });
 		    var username  	= $('[name="username"]').val(),
-		    	pass		= $('[name="password"]').val(),
-		    	updateUrl 	= base_url + '/account/login/' + username + '/' + pass + '/';
+		    	pass		= $.md5( $('[name="password"]').val() ),
+		    	updateUrl 	= '/account/login/' + username + '/' + pass + '/';
 		    console.log( updateUrl );
 	        $.ajax({
 	            url: updateUrl,
 	            context: document.body,
-	            success: function(){ console.log( 'sent update!' ); }
+	            success: function(return_element){ console.log(return_element['response_status'] ); }
 	        });				
 		}
 	}
