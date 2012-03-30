@@ -5,9 +5,6 @@ exports.login = function(req, res){
   res.app.settings['db'].query(query_string, function(result_object){
     console.log(result_object);
     /*add whatever to do after query here..*/
-    res.render('index', {
-      title:'Blackbox_user_test',
-      test:'test'
-    })
+    res.send(result_object)
   })
 };
