@@ -1,5 +1,4 @@
 $(document).ready(function(){
-
 	$('form').submit( function(ev){
 		ev.preventDefault();
 		var form    	= $(this),
@@ -35,7 +34,19 @@ $(document).ready(function(){
 	        $.ajax({
 	            url: updateUrl,
 	            context: document.body,
-	            success: function(return_element){ console.log(return_element['response_status'] ); }
+	            success: function(return_element){ 
+			if (return_element['response_status'] == true){
+			    // create session (cookie?)
+			    // grab user settings from reddis
+			    // Remove login box
+			    // animate out current layout 
+			    // redirect to dashboard
+			}else{
+			    // shake box / alert invalid login
+			    // empty / reset form
+			    //
+			}
+		    }
 	        });				
 		}
 	}
