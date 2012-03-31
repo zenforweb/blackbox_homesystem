@@ -1,12 +1,12 @@
-/*CHRIS*/
-// exports.config = {
-//   'app_port':3737,
-//   'db_host':'localhost',
-//   'db_user':'root',
-//   'db_pass':'cleancut',
-//   'db_port':'3306',
-//   'db_pool_size':'20'
-// }
+/* CHRIS */
+exports.config = {
+  'app_port':3737,
+  'db_host':'localhost',
+  'db_user':'root',
+  'db_pass':'cleancut',
+  'db_port':'3306',
+  'db_pool_size':'20'
+}
 /*  NOTE:
 /* TO AVOID THE REDUNDANT config['config'] in the config['config']['app_port'] CALL (AND DB CONTROLLER INSTANTIATION), WE COULD DO:
   exports.app_settings = {'
@@ -26,6 +26,7 @@
 */
 
 /* ALIX*/
+/*
 exports.config = {
   'app_port':3636,
   'db_host':'localhost',
@@ -34,5 +35,4 @@ exports.config = {
   'db_port':'3306',
   'db_pool_size':'20'
 }
-
-
+*/
