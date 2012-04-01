@@ -34,14 +34,21 @@ app.configure('production', function(){
 app.get('/', routes.index);
 io.sockets.on('connection', function(socket){
   socket.on('login_attempt',function(login_data){
-    login_status=true;
-    console.log(login_data);
-    // QUERY based on login data
-    if (login_status==true){
-      socket.emit('login_success',{'status':true})
-    }else{
-      socket.emit('log_failure',{'status':false})
-    }
+    user = login_data['username'];
+    pass = login_data['pass'];
+    query_string = "SELECT * FROM logic_1.userSecure WHERE user='"+user+"' and pass='"+pass+"'";
+    db_controller.query(query_string, function(result_object){
+      if (result_object['raw_response'].length == 1){
+	socket.emit('login_success',{
+	    'status':true,
+	    'session_id':'not implemented',
+	    'username':user,
+	    'user_id':result_object['raw_response'][0]['user_id']
+	})
+      }else{
+	socket.emit('login_failure',{'status':false})
+      }
+    })
   });
 })
 app.listen(config['config']['app_port']);

@@ -1,4 +1,3 @@
-
 $(document).ready(function(){
     $.getScript('/socket.io/socket.io.js', function(){
 	var socket = io.connect()
@@ -29,12 +28,18 @@ $(document).ready(function(){
 	function login( form ){
 	    if ( form_validate( form )){
 		form.hide('1000', function(){ loading.show()});
-		var username  	= $('[name="username"]').val(),
-		pass		= $.md5( $('[name="password"]').val() ),
-		updateUrl 	= '/account/login/' + username + '/' + pass + '/';
-		console.log( updateUrl );
-		socket.emit('login_attempt', {'username':'test','pass':'test'});
+		var username = $('[name="username"]').val();
+		var pass = $.md5($('[name="password"]').val());
+		socket.emit('login_attempt', {'username':username,'pass':pass});
 	    }
 	}
+	socket.on('login_success',function(page){
+	    console.log('success')
+	    console.log(page)
+	})
+	socket.on('login_failure',function(page){
+	    console.log('fail')
+	    console.log(page)
+	})
     })
 });
