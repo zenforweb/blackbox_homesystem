@@ -5,7 +5,7 @@ var db_base = require('./lib/dbase.js');
 var config = require('./config.js');
 var express = require('express');
 var routes = require('./routes');
-
+var jade = require('jade');
 //var account_routes = require('./routes/account');
 var app = module.exports = express.createServer();
 var io = require('socket.io').listen(app);
@@ -23,6 +23,7 @@ app.configure(function(){
   app.use(express.static(__dirname + '/public'));
 });
 
+
 app.configure('development', function(){
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
@@ -39,11 +40,18 @@ io.sockets.on('connection', function(socket){
     query_string = "SELECT * FROM logic_1.userSecure WHERE user='"+user+"' and pass='"+pass+"'";
     db_controller.query(query_string, function(result_object){
       if (result_object['raw_response'].length == 1){
+	var t_file = require('fs').readFileSync('./views/dashboard.jade','utf8');
+        var j_funct = jade.compile(t_file, {filename:'',pretty: true});
+	var rendered_template = j_funct({'test':'test'});
+	console.log(j_funct);
+	console.log(t_file);
+	console.log(rendered_template);
 	socket.emit('login_success',{
 	    'status':true,
 	    'session_id':'not implemented',
 	    'username':user,
-	    'user_id':result_object['raw_response'][0]['user_id']
+	    'user_id':result_object['raw_response'][0]['user_id'],
+	    'page': rendered_template
 	})
       }else{
 	socket.emit('login_failure',{'status':false})
