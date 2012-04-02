@@ -1,11 +1,14 @@
 #wrap
-	#frontEndLogo
-	#clockFront
-	#login.floatRight
-		form(id='form_login')
-			input.frontEndInput(name='username')(placeholder='user', autofocus='autofocus')
-			br
-			input.frontEndInput(name='password')(type='password')(placeholder='pass')
-			br
-			input.button(type='submit', value='login')
-	#loading.loading.floatRight(style='display:none')
+	div.page_panel.activated_panel.login_wrapper
+		.clearAll
+		#login
+			form(id='form_login')
+				input.frontEndInput(name='username')(placeholder='user', autofocus='autofocus')
+				br
+				input.frontEndInput(name='password')(type='password')(placeholder='pass')
+				br
+				input.button(type='submit', value='login')
+			.clearAll
+			#loading.loading(style='display:none')
+			.clearAll
+		.clearAll

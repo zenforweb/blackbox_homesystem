@@ -43,18 +43,22 @@ io.sockets.on('connection', function(socket){
 	var t_file = require('fs').readFileSync('./views/dashboard.jade','utf8');
         var j_funct = jade.compile(t_file, {filename:'',pretty: true});
 	var rendered_template = j_funct({'test':'test'});
-	console.log(j_funct);
-	console.log(t_file);
-	console.log(rendered_template);
 	socket.emit('login_success',{
 	    'status':true,
+	    'status_message':'Login Successful.',
 	    'session_id':'not implemented',
 	    'username':user,
+	    'form_id':login_data['form_id'],
 	    'user_id':result_object['raw_response'][0]['user_id'],
 	    'page': rendered_template
 	})
       }else{
-	socket.emit('login_failure',{'status':false})
+	socket.emit('login_failure',{
+	    'status':false,
+	    'status_message':'User does not exist.',
+	    'page':'',
+	    'form_id':login_data['form_id']
+	})
       }
     })
   });
