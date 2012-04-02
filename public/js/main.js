@@ -35,7 +35,10 @@ $(document).ready(function(){
 	}
 	socket.on('login_success',function(page){
 	    console.log('success')
-	    console.log(page)
+	    var new_page = document.createElement('div');
+	    new_page.inner_html = page['page'];
+	    document.body.appendChild(new_page);
+	    console.log(page['page']);
 	})
 	socket.on('login_failure',function(page){
 	    console.log('fail')
