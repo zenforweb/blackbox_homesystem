@@ -28,21 +28,35 @@ $(document).ready(function(){
 	function login( form ){
 	    if ( form_validate( form )){
 		form.hide('1000', function(){ loading.show()});
-		var username = $('[name="username"]').val();
-		var pass = $.md5($('[name="password"]').val());
-		socket.emit('login_attempt', {'username':username,'pass':pass});
+		socket.emit('login_attempt', {
+		    'username':$('[name="username"]').val(),
+		    'pass':$.md5($('[name="password"]').val()),
+		    'form_id': form.attr('id')
+		});
 	    }
 	}
 	socket.on('login_success',function(page){
-	    console.log('success')
-	    var new_page = document.createElement('div');
-	    new_page.inner_html = page['page'];
-	    document.body.appendChild(new_page);
-	    console.log(page['page']);
+	    var success_page = $(page['page'])
+	    success_page.animate({
+		left: '+=1000'
+	    })
+	    success_page.appendTo('#wrap')
+	    $.each($('.activated_panel'),function(){
+		$(this).animate({
+		    left: '-=1000'
+		})
+		$(this).css('display','none')
+	    })
+	    success_page.css('display', 'block');
+	    success_page.animate({
+		left: '-=1000'
+	    })
 	})
 	socket.on('login_failure',function(page){
-	    console.log('fail')
-	    console.log(page)
+	    var form = $('#'+page['form_id']);
+	    loading.hide();
+	    form.show('1000',function(){loading.hide()});
+	    form.effect("shake", { times:3 }, 100);	    
 	})
     })
 });
