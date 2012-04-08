@@ -1,33 +1,23 @@
-@import 'reset.css'
-@import 'helpers'
-@import 'desktop'
-@import 'ipad'
-@import 'iphone'
-@import 'mobile'
+@import 'lib/reset.css'
+@import 'lib/css3'
+@import 'browser/desktop'
+@import 'browser/ipad'
+@import 'browser/iphone'
+@import 'browser/mobile'
+@import '../themes/blocks/css/block'
+@import 'lib/helpers'
+@import 'lib/text'
 
 //  Generic CSS
 body
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
-  
-.button
-  background-color: white
-  border-radius: 8px
-  border: 1px solid black
 #wrap
   position: absolute
   width: 100%
   overflow: hidden
   margin-top:10px
 
-.clearAll
-  width:100%
-  display:block
-  float:none
-  height:0px
-  line-height:0px
-  clear:both
 //  Splash Page
-
 #login
   margin: 0 auto
   width: 215px
@@ -37,7 +27,7 @@ body
   width: 33px
 
 .frontEndInput
-  background-image: url('http://politeauthority.com/remote/blackbox/images/gfx/input.png')
+  background-image: url('/images/ui/input.png')
   background-repeat: no-repeat
   border: 0
   background-color: transparent
@@ -50,19 +40,6 @@ body
   color: white
   font-size: 24px
 
-.page_panel
-  border-radius:15px
-  mox-border-radius:15px
-  width: 600px
-  position: relative
-  display: none
-  margin: 0 auto
-  background:#fff
-  padding:30px
-.page_panel .login_wrapper
-  margin-top:100px
-
-  
 .activated_panel
   display: block
   position: relative
