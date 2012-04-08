@@ -1,30 +1,75 @@
-@import 'reset.css';
-*:focus {
-  outline: none;
-}
-.clearFix {
-  clear: both;
-}
-.floatRight {
-  float: right;
-}
-.floatLeft {
-  float: left;
-}
-.loading {
-  background-image: url("/images/ajax-loader.gif");
-  background-repeat: no-repeat;
-  height: 33px;
-  width: 33px;
-}
+@import 'lib/reset.css';
 #desktop {
-  background-image: url("http://politeauthority.com/remote/blackbox/images/main/gradient-1.png");
   background-repeat: repeat-x;
   background-attachment: fixed;
+  width: 1110px;
 }
 #desktop #wrap {
-  width: 1110px;
   margin: auto;
+}
+.page_panel {
+  -webkit-border-radius: 15px;
+  -moz-border-radius: 15px;
+  -o-border-radius: 15px;
+  border-radius: 15px;
+  width: 800px;
+  position: relative;
+  display: none;
+  margin: 0 auto;
+  padding: 30px;
+}
+.full_page {
+  background-image: url("/images/ui/white30.png");
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  -moz-box-shadow: 3px 2px 1px;
+  -webkit-box-shadow: 3px 2px 1px;
+  box-shadow: 3px 2px 1px;
+}
+.full_page table {
+  margin-top: 5px;
+  margin-bottom: 15px;
+}
+.full_page table thead tr td {
+  padding: 8px;
+}
+.full_page table tbody tr td {
+  padding: 4px;
+  vertical-align: middle;
+}
+.full_page table tbody tr:nth-child(even) {
+  background-color: #dedede;
+}
+.full_page #tabs {
+  width: 90%;
+  margin: auto;
+}
+.full_page .option3,
+.full_page .option2 {
+  float: left;
+}
+.full_page .option3 {
+  width: 33%;
+}
+.full_page .option2 {
+  width: 50%;
+}
+.full_page .option2 table {
+  width: 100%;
+}
+.full_page .option2 :nth-child(1) {
+  padding-right: 15px;
+}
+.full_page .option2 :nth-child(2) {
+  padding-left: 15px;
+}
+.full_page .option1 table {
+  width: 100%;
+}
+.page_panel .login_wrapper {
+  margin-top: 100px;
 }
 #ipad {
   background-image: url("http://politeauthority.com/remote/blackbox/images/main/gradient-1.png");
@@ -42,27 +87,70 @@
 #mobile {
   width: 200px;
 }
-body {
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+input {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
 }
-.button {
-  background-color: #fff;
-  border-radius: 8px;
-  border: 1px solid #000;
+#desktop {
+  background-image: url("/themes/blocks/images/bgs/user_1.jpeg");
+  background-position: -957px -985px;
 }
-#wrap {
-  position: absolute;
-  width: 100%;
-  overflow: hidden;
-  margin-top: 10px;
+*:focus {
+  outline: none;
 }
-.clearAll {
+.clearFix .clearAll {
   width: 100%;
   display: block;
   float: none;
   height: 0px;
   line-height: 0px;
   clear: both;
+}
+.hide {
+  display: none;
+}
+.floatRight {
+  float: right;
+}
+.floatLeft {
+  float: left;
+}
+.button {
+  background-color: #fff;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  -o-border-radius: 8px;
+  border-radius: 8px;
+  border: 1px solid #000;
+}
+.loading {
+  background-image: url("/images/ajax-loader.gif");
+  background-repeat: no-repeat;
+  height: 33px;
+  width: 33px;
+}
+h1 {
+  font-size: 20px;
+}
+h1 {
+  font-size: 16px;
+}
+.text-notify {
+  font-style: itallic;
+}
+.text-warn {
+  color: #f00;
+}
+body {
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+#wrap {
+  position: absolute;
+  width: 100%;
+  overflow: hidden;
+  margin-top: 10px;
 }
 #login {
   margin: 0 auto;
@@ -73,7 +161,7 @@ body {
   width: 33px;
 }
 .frontEndInput {
-  background-image: url("http://politeauthority.com/remote/blackbox/images/gfx/input.png");
+  background-image: url("/images/ui/input.png");
   background-repeat: no-repeat;
   border: 0;
   background-color: transparent;
@@ -85,19 +173,6 @@ body {
   font-family: Helvetica;
   color: #fff;
   font-size: 24px;
-}
-.page_panel {
-  border-radius: 15px;
-  mox-border-radius: 15px;
-  width: 600px;
-  position: relative;
-  display: none;
-  margin: 0 auto;
-  background: #fff;
-  padding: 30px;
-}
-.page_panel .login_wrapper {
-  margin-top: 100px;
 }
 .activated_panel {
   display: block;
