@@ -1,16 +1,19 @@
 /**
  * Module dependencies.
  */
+
 var db_base = require('./lib/dbase.js');
 var config = require('./config.js');
 var express = require('express');
 var routes = require('./routes');
 var jade = require('jade');
-//var account_routes = require('./routes/account');
+var acc_login = require('./lib/account_login.js');
 var app = module.exports = express.createServer();
 var io = require('socket.io').listen(app);
+
 var db_controller = new db_base.Dbase_controller(config['config']['db_host'],config['config']['db_port'],config['config']['db_user'],config['config']['db_pass'],config['config']['db_pool_size']);
 db_controller.create_connection_pool();
+
 // Configuration
 app.configure(function(){
   app.set('views', __dirname + '/views');
@@ -23,45 +26,18 @@ app.configure(function(){
   app.use(express.static(__dirname + '/public'));
 });
 
-
 app.configure('development', function(){
   app.use(express.errorHandler({ dumpExceptions: true, showStack: true }));
 });
-
 app.configure('production', function(){
   app.use(express.errorHandler());
 });
+
 // Routes
 app.get('/', routes.index);
 io.sockets.on('connection', function(socket){
-  socket.on('login_attempt',function(login_data){
-    user = login_data['username'];
-    pass = login_data['pass'];
-    query_string = "SELECT * FROM logic_1.userSecure WHERE user='"+user+"' and pass='"+pass+"'";
-    db_controller.query(query_string, function(result_object){
-      if (result_object['raw_response'].length == 1){
-	var t_file = require('fs').readFileSync('./views/dashboard.jade','utf8');
-        var j_funct = jade.compile(t_file, {filename:'',pretty: true});
-	var rendered_template = j_funct({'test':'test'});
-	socket.emit('login_success',{
-	    'status':true,
-	    'status_message':'Login Successful.',
-	    'session_id':'not implemented',
-	    'username':user,
-	    'form_id':login_data['form_id'],
-	    'user_id':result_object['raw_response'][0]['user_id'],
-	    'page': rendered_template
-	})
-      }else{
-	socket.emit('login_failure',{
-	    'status':false,
-	    'status_message':'User does not exist.',
-	    'page':'',
-	    'form_id':login_data['form_id']
-	})
-      }
-    })
-  });
+  acc_login = new acc_login.account_login(socket,jade,db_controller);
 })
+
 app.listen(config['config']['app_port']);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
