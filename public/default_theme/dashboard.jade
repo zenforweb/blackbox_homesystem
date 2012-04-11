@@ -1,45 +1,45 @@
 script(type='text/javascript')
-	$(function() {
-		$( '#tabs' ).tabs();
-		$('.add_form').click( function(){
-			var button 		= $(this),
-				span		= button.find('span')
-				button_val 	= span.attr('class'),
-				add_id 		= span.attr('value'),
-				add_form 	= $( '#' + add_id + '_add_form' );
-			if( button_val == 'ui-icon ui-icon-plusthick'){
-				span.removeClass('ui-icon ui-icon-plusthick');
-				span.addClass('ui-icon ui-icon-minusthick');
-			} else {
-				span.removeClass('ui-icon ui-icon-minusthick');
-				span.addClass('ui-icon ui-icon-plusthick');
-			}
-			add_form.toggle(500);
-		});
-		$('#jquery-ui-theme').change( function(){
-			var css_url = "http://10.1.10.50:3636/css/​jquery-ui-themes/hot-sneaks/​jquery-ui-1.8.18.custom.css";			
-			console.log( css_url );
-			$('link').next().attr( 'href', css_url );
-		});
+    $(function() {
+        $( '#tabs' ).tabs();
+	$('.add_form').click( function(){
+	    var button = $(this),
+	    span = button.find('span')
+	    button_val = span.attr('class'),
+	    add_id = span.attr('value'),
+	    add_form = $( '#' + add_id + '_add_form' );
+	if( button_val == 'ui-icon ui-icon-plusthick'){
+	    span.removeClass('ui-icon ui-icon-plusthick');
+	    span.addClass('ui-icon ui-icon-minusthick');
+	} else {
+	    span.removeClass('ui-icon ui-icon-minusthick');
+	    span.addClass('ui-icon ui-icon-plusthick');
+	}
+	add_form.toggle(500);
+    });
+    $('#jquery-ui-theme').change( function(){
+        var css_url = "http://10.1.10.50:3636/css/​jquery-ui-themes/hot-sneaks/​jquery-ui-1.8.18.custom.css";			
+	console.log( css_url );
+	$('link').next().attr( 'href', css_url );
+    });
 	});
 div.page_panel.dashboard_wrapper
-	div#settings.full_page
-		h1 Settings
-		div#tabs
-			ul
-				li
-					a(href='#tabs-1')|Pefrences
-				li
-					a(href='#tabs-2')|Users
-				li
-					a(href='#tabs-3')|Devices
-				li
-					a(href='#tabs-4')|Plugins					
-				li
-					a(href='#tabs-5')|Setup			
-			div#tabs-1
-				div.option2
-					form
+    div#settings.full_page
+	h1 Settings
+	div#tabs
+	ul
+	    li
+		a(href='#tabs-1')|Pefrences
+	    li
+		a(href='#tabs-2')|Users
+	    li
+		a(href='#tabs-3')|Devices
+	    li
+		a(href='#tabs-4')|Plugins					
+	    li
+		a(href='#tabs-5')|Setup			
+	div#tabs-1
+	    div.option2
+		form
 						table
 							thead.ui-widget-header
 								tr
