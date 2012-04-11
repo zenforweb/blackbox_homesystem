@@ -1,302 +1,302 @@
 script(type='text/javascript')
-    $(function() {
-        $( '#tabs' ).tabs();
-	$('.add_form').click( function(){
-	    var button = $(this),
-	    span = button.find('span')
-	    button_val = span.attr('class'),
-	    add_id = span.attr('value'),
-	    add_form = $( '#' + add_id + '_add_form' );
-	if( button_val == 'ui-icon ui-icon-plusthick'){
-	    span.removeClass('ui-icon ui-icon-plusthick');
-	    span.addClass('ui-icon ui-icon-minusthick');
-	} else {
-	    span.removeClass('ui-icon ui-icon-minusthick');
-	    span.addClass('ui-icon ui-icon-plusthick');
-	}
-	add_form.toggle(500);
-    });
-    $('#jquery-ui-theme').change( function(){
-        var css_url = "http://10.1.10.50:3636/css/​jquery-ui-themes/hot-sneaks/​jquery-ui-1.8.18.custom.css";			
-	console.log( css_url );
-	$('link').next().attr( 'href', css_url );
-    });
-	});
+	$(function() {
+		     $( '#tabs' ).tabs();
+		     $('.add_form').click( function(){
+						var button		= $(this),
+						    			  span		= button.find('span')
+												button_val	= span.attr('class'),
+															add_id   = span.attr('value'),
+																    add_form  = $( '#' + add_id + '_add_form' );
+																    	      	if( button_val == 'ui-icon ui-icon-plusthick'){
+																		    	       	  span.removeClass('ui-icon ui-icon-plusthick');
+																				  			      span.addClass('ui-icon ui-icon-minusthick');
+																							      			      } else {
+																										      	      span.removeClass('ui-icon ui-icon-minusthick');
+																											      				  span.addClass('ui-icon ui-icon-plusthick');
+																															  			  }
+																																		    add_form.toggle(500);
+																																		     });
+																																		      $('#jquery-ui-theme').change( function(){
+																																		      				     var css_url = "http://10.1.10.50:3636/css/​jquery-ui-themes/hot-sneaks/​jquery-ui-1.8.18.custom.css";   
+																																						     	 	 console.log( css_url );
+																																								 	      	      $('link').next().attr( 'href', css_url );
+																																										      			     });
+																																													     });
 div.page_panel.dashboard_wrapper
-    div#settings.full_page
-	h1 Settings
-	div#tabs
-	ul
-	    li
-		a(href='#tabs-1')|Pefrences
-	    li
-		a(href='#tabs-2')|Users
-	    li
-		a(href='#tabs-3')|Devices
-	    li
-		a(href='#tabs-4')|Plugins					
-	    li
-		a(href='#tabs-5')|Setup			
-	div#tabs-1
-	    div.option2
-		form
-						table
-							thead.ui-widget-header
-								tr
-									td(colspan='2')| Your Info
-							tbody.ui-widget-content
-								tr
-									td User Name
-									td
-										input(placeholder='alix')
-								tr
-									td Email
-									td
-										input(placeholder='alix@politeauthority.com')
-								tr
-									td Time Format
-									td
-										input(placeholder='m d y')
-						table
-							thead.ui-widget-header
-								tr
-									td(colspan='2') Change Password
-							tbody.ui-widget-content
-								tr
-									td Old Password
-									td
-										input
-								tr
-									td New Password
-									td
-										input(type='password')
-								tr
-									td Confirm Password
-									td
-										input(type='password')
-				div.option2
-					table
-						thead.ui-widget-header
-							tr
-								td Theme
-								td
-									select
-										option|Blocks
-										option|Another Theme
-						tbody.ui-widget-content
-							tr
-								td Blocks
-								td
-							tr
-								td Main Color
-								td
-									input(size='8', placeholder='#000000')
-							tr
-								td Secondary Color
-								td
-									input(size='8', placeholder='#000000')
-							tr
-								td Tirtiary Color
-								td
-									input(size='8', placeholder='#000000')
-							tr
-								td Background
-								td
-									input(placeholder='user_bg_1.jpg')
-							tr
-								td Jquery Ui
-								td
-									select#jquery-ui-theme
-										option(value='flick')|Flick
-										option(value='hot-sneaks')|Hot Sneaks
-				div(style="clear:both")
-			div#tabs-2
-				div.option1
-					h1 Users
-					div.add_form
-						span.ui-icon.ui-icon-plusthick(value='user')
-					table#user_add_form.hide
-						thead.ui-widget-header
-							tr
-								td New User
-								td
-						tbody.ui-widget-content
-							tr
-								td User Name
-								td
-									input
-							tr
-								td Email
-								td
-									input
-							tr
-								td Password
-								td
-									input
-							tr
-								td Confirm
-								td
-									input
-							tr
-								td(colspan='2', style="text-align:center;")
-									button Add User
-					table.ui-widget-content
-						thead.ui-widget-header
-							tr
-								td Current Users
-								td
-								td
-						tbody
-							tr	
-								td Alix
-								td 10 min ago
-								td
-									button
-										|more
-							tr	
-								td Brain
-								td 2 hours ago
-								td
-									button
-										|more
-							tr	
-								td|Chris
-								td|yesterday
-								td
-									button
-										|more
-							tr	
-								td|Franchesca
-								td|3 days ago
-								td
-									button
-										|more
-			div#tabs-3
-				div.option1
-					h1 Devices
-					table
-						thead.ui-widget-header
-							tr
-								td
-								td Device Name
-								td ip
-								td last seen
-								td
-						tbody.ui-widget-content
-							tr
-								td
-									img(src="/themes/blocks/images/machine_icons/fallback.jpg", style="height:50px; width:50px;")
-								td Alix's Laptop
-								td 10.1.10.50
-								td 10 minutes ago
-								td
-									button
-										|more
-							tr
-								td
-									img(src="/themes/blocks/images/machine_icons/fallback.jpg", style="height:50px; width:50px;")
-								td FileServ
-								td 10.1.10.51
-								td 15 minutes ago
-								td
-									button
-										|more										
-			div#tabs-4
-				h1 Plugins
-				div.option1
-					table
-						thead.ui-widget-header
-							tr	
-								td 
-									h2 Themes
-								td Added
-								td Version
-								td Author
-								td
-						tbody.ui-widget-content										
-							tr	
-								td Blocks
-								td On Import
-								td .001
-								td Zen For Web
-								td 
-									button more
-							tr	
-								td Another Theme
-								td On Import
-								td .001
-								td Zen For Web
-								td
-									button more
-					table
-						thead.ui-widget-header
-							tr	
-								td 
-									h2 Add Ons
-								td Added
-								td Version
-								td Author
-								td
-						tbody.ui-widget-content
-							tr	
-								td Chat
-								td On Init
-								td .001
-								td Zen For Web
-								td
-									button|more
-							tr	
-								td Local Network Scaning
-								td On Init
-								td .001
-								td Zen For Web
-								td
-									button|more
-							tr	
-								td Motion Video Surveillance
-								td On Init
-								td .001
-								td Zen For Web
-								td
-									button|more									
-			div#tabs-5
-				h1 Setup
-				div.option1
-					table
-						thead.ui-widget-header
-							tr
-								td Database
-								td
-						tbody.ui-widget-content										
-							tr
-								td Database Type
-								td
-									select(disabled="disabled")
-										option MySql
-							tr	
-								td Database
-								td
-									input(disabled="disabled", value="logic_1")
-							tr	
-								td User
-								td
-									input(disabled="disabled", value="god")	
-							tr	
-								td Password
-								td
-									input(disabled="disabled", value="password", type="password")
-					table
-						thead.ui-widget-header
-							tr	
-								td 
-									h2 Other
-								td
-								td
-								td
-						tbody.ui-widget-content
-							tr	
-								td|Chat
-								td|On Import
-								td|Zen For Web
-								td
-									button|more
+	div#settings.full_page
+		h1 Settings
+		   div#tabs
+				ul
+							li
+											a(href='#tabs-1')|Pefrences
+														li
+															   a(href='#tabs-2')|Users
+															      li
+															          a(href='#tabs-3')|Devices
+																     li
+																         a(href='#tabs-4')|Plugins     
+																	 			         li
+																					     a(href='#tabs-5')|Setup   
+																					     			        div#tabs-1
+																									   div.option2
+																									       form
+																									            table
+																										          thead.ui-widget-header
+																											         tr
+																												         td(colspan='2')| Your Info
+																													 		           tbody.ui-widget-content
+																																          tr
+																																	          td User Name
+																																		     	        td
+																																				         input(placeholder='alix')
+																																					        tr
+																																						        td Email
+																																							          td
+																																								           input(placeholder='alix@politeauthority.com')
+																																									          tr
+																																										          td Time Format
+																																											     	        td
+																																													         input(placeholder='m d y')
+																																														 		      	   table
+																																																	         thead.ui-widget-header
+																																																		        tr
+																																																			        td(colspan='2') Change Password
+																																																						           tbody.ui-widget-content
+																																																							          tr
+																																																								          td Old Password
+																																																									     	       td
+																																																										                input
+																																																												       tr
+																																																												               td New Password
+																																																													       	            td
+																																																															             input(type='password')
+																																																																            tr
+																																																																	            td Confirm Password
+																																																																		       	             td
+																																																																				              input(type='password')
+																																																																					         div.option2
+																																																																						     table
+																																																																						          thead.ui-widget-header
+																																																																							        tr
+																																																																								       td Theme
+																																																																								       	        td
+																																																																										        select
+																																																																											         option|Blocks
+																																																																												          option|Another Theme
+																																																																													  		     tbody.ui-widget-content
+																																																																															           tr
+																																																																																          td Blocks
+																																																																																	           td
+																																																																																		         tr
+																																																																																			        td Main Color
+																																																																																				   	     td
+																																																																																					             input(size='8', placeholder='#000000')
+																																																																																						     		          tr
+																																																																																									         td Secondary Color
+																																																																																										    	           td
+																																																																																												           input(size='8', placeholder='#000000')
+																																																																																													   		        tr
+																																																																																																       td Tirtiary Color
+																																																																																																       	  	        td
+																																																																																																			        input(size='8', placeholder='#000000')
+																																																																																																						     tr
+																																																																																																						            td Background
+																																																																																																							             td
+																																																																																																								             input(placeholder='user_bg_1.jpg')
+																																																																																																									           tr
+																																																																																																										          td Jquery Ui
+																																																																																																											     	         td
+																																																																																																													         select#jquery-ui-theme
+																																																																																																														          option(value='flick')|Flick
+																																																																																																															           option(value='hot-sneaks')|Hot Sneaks
+																																																																																																																   				    div(style="clear:both")
+																																																																																																																				      div#tabs-2
+																																																																																																																				         div.option1
+																																																																																																																					     h1 Users
+																																																																																																																					     	   div.add_form
+																																																																																																																						        span.ui-icon.ui-icon-plusthick(value='user')
+																																																																																																																							    table#user_add_form.hide
+																																																																																																																							         thead.ui-widget-header
+																																																																																																																								       tr
+																																																																																																																								              td New User
+																																																																																																																									      	          td
+																																																																																																																											       tbody.ui-widget-content
+																																																																																																																											             tr
+																																																																																																																												            td User Name
+																																																																																																																													       	         td
+																																																																																																																															         input
+																																																																																																																																       tr
+																																																																																																																																              td Email
+																																																																																																																																	      	       td
+																																																																																																																																		               input
+																																																																																																																																			             tr
+																																																																																																																																				            td Password
+																																																																																																																																					             td
+																																																																																																																																						             input
+																																																																																																																																							           tr
+																																																																																																																																								          td Confirm
+																																																																																																																																									           td
+																																																																																																																																										           input
+																																																																																																																																											         tr
+																																																																																																																																												        td(colspan='2', style="text-align:center;")
+																																																																																																																																															       button Add User
+																																																																																																																																															       	      	    table.ui-widget-content
+																																																																																																																																																	         thead.ui-widget-header
+																																																																																																																																																		       tr
+																																																																																																																																																		              td Current Users
+																																																																																																																																																			      	 	      td
+																																																																																																																																																					             td
+																																																																																																																																																						          tbody
+																																																																																																																																																							        tr 
+																																																																																																																																																								         td Alix
+																																																																																																																																																									          td 10 min ago
+																																																																																																																																																										     	        td
+																																																																																																																																																												        button
+																																																																																																																																																													         |more
+																																																																																																																																																														       tr 
+																																																																																																																																																														       	        td Brain
+																																																																																																																																																																         td 2 hours ago
+																																																																																																																																																																	      	        td
+																																																																																																																																																																			        button
+																																																																																																																																																																				         |more
+																																																																																																																																																																					       tr 
+																																																																																																																																																																					       	        td|Chris
+																																																																																																																																																																							       td|yesterday
+																																																																																																																																																																							              td
+																																																																																																																																																																								              button
+																																																																																																																																																																									               |more
+																																																																																																																																																																										             tr 
+																																																																																																																																																																											     	      td|Franchesca
+																																																																																																																																																																												             td|3 days ago
+																																																																																																																																																																													     	            td
+																																																																																																																																																																															            button
+																																																																																																																																																																																             |more
+																																																																																																																																																																																	       div#tabs-3
+																																																																																																																																																																																	          div.option1
+																																																																																																																																																																																		      h1 Devices
+																																																																																																																																																																																		      	    table
+																																																																																																																																																																																			         thead.ui-widget-header
+																																																																																																																																																																																				       tr
+																																																																																																																																																																																				              td
+																																																																																																																																																																																					             td Device Name
+																																																																																																																																																																																						     	            td ip
+																																																																																																																																																																																								             td last seen
+																																																																																																																																																																																									     	          td
+																																																																																																																																																																																											       tbody.ui-widget-content
+																																																																																																																																																																																											             tr
+																																																																																																																																																																																												            td
+																																																																																																																																																																																													            img(src="/themes/blocks/images/machine_icons/fallback.jpg", style="height:50px; width:50px;")
+																																																																																																																																																																																														    										         td Alix's Laptop
+																																																																																																																																																																																																									    	        td 10.1.10.50
+																																																																																																																																																																																																											         td 10 minutes ago
+																																																																																																																																																																																																												       	           td
+																																																																																																																																																																																																														           button
+																																																																																																																																																																																																															            |more
+																																																																																																																																																																																																																          tr
+																																																																																																																																																																																																																	         td
+																																																																																																																																																																																																																		         img(src="/themes/blocks/images/machine_icons/fallback.jpg", style="height:50px; width:50px;")
+																																																																																																																																																																																																																			 							     			      td FileServ
+																																																																																																																																																																																																																													      	       td 10.1.10.51
+																																																																																																																																																																																																																														       	        td 15 minutes ago
+																																																																																																																																																																																																																																      	          td
+																																																																																																																																																																																																																																		          button
+																																																																																																																																																																																																																																			           |more          
+																																																																																																																																																																																																																																				   		   div#tabs-4
+																																																																																																																																																																																																																																						      h1 Plugins
+																																																																																																																																																																																																																																						      	   div.option1
+																																																																																																																																																																																																																																							       table
+																																																																																																																																																																																																																																							            thead.ui-widget-header
+																																																																																																																																																																																																																																								          tr 
+																																																																																																																																																																																																																																									           td 
+																																																																																																																																																																																																																																										             h2 Themes
+																																																																																																																																																																																																																																											     	      td Added
+																																																																																																																																																																																																																																												      	       td Version
+																																																																																																																																																																																																																																													       	        td Author
+																																																																																																																																																																																																																																															         td
+																																																																																																																																																																																																																																																      tbody.ui-widget-content          
+																																																																																																																																																																																																																																																      				            tr 
+																																																																																																																																																																																																																																																					             td Blocks
+																																																																																																																																																																																																																																																						     	      td On Import
+																																																																																																																																																																																																																																																							      	         td .001
+																																																																																																																																																																																																																																																									          td Zen For Web
+																																																																																																																																																																																																																																																										     	         td 
+																																																																																																																																																																																																																																																												           button more
+																																																																																																																																																																																																																																																													   	       tr 
+																																																																																																																																																																																																																																																														       	        td Another Theme
+																																																																																																																																																																																																																																																																   	        td On Import
+																																																																																																																																																																																																																																																																		           td .001
+																																																																																																																																																																																																																																																																			            td Zen For Web
+																																																																																																																																																																																																																																																																				       	           td
+																																																																																																																																																																																																																																																																						           button more
+																																																																																																																																																																																																																																																																							   	     table
+																																																																																																																																																																																																																																																																								          thead.ui-widget-header
+																																																																																																																																																																																																																																																																									        tr 
+																																																																																																																																																																																																																																																																										         td 
+																																																																																																																																																																																																																																																																											           h2 Add Ons
+																																																																																																																																																																																																																																																																												      	       td Added
+																																																																																																																																																																																																																																																																													       	        td Version
+																																																																																																																																																																																																																																																																															         td Author
+																																																																																																																																																																																																																																																																																          td
+																																																																																																																																																																																																																																																																																	       tbody.ui-widget-content
+																																																																																																																																																																																																																																																																																	             tr 
+																																																																																																																																																																																																																																																																																		     	      td Chat
+																																																																																																																																																																																																																																																																																			      	       td On Init
+																																																																																																																																																																																																																																																																																				       	          td .001
+																																																																																																																																																																																																																																																																																						           td Zen For Web
+																																																																																																																																																																																																																																																																																							      	          td
+																																																																																																																																																																																																																																																																																									          button|more
+																																																																																																																																																																																																																																																																																										        tr 
+																																																																																																																																																																																																																																																																																											         td Local Network Scaning
+																																																																																																																																																																																																																																																																																												    	  	      td On Init
+																																																																																																																																																																																																																																																																																														      	         td .001
+																																																																																																																																																																																																																																																																																																          td Zen For Web
+																																																																																																																																																																																																																																																																																																	     	         td
+																																																																																																																																																																																																																																																																																																			         button|more
+																																																																																																																																																																																																																																																																																																				       tr 
+																																																																																																																																																																																																																																																																																																				       	        td Motion Video Surveillance
+																																																																																																																																																																																																																																																																																																						   	  	    td On Init
+																																																																																																																																																																																																																																																																																																								       	       td .001
+																																																																																																																																																																																																																																																																																																									       	        td Zen For Web
+																																																																																																																																																																																																																																																																																																											       	       td
+																																																																																																																																																																																																																																																																																																												               button|more         
+																																																																																																																																																																																																																																																																																																													       			    div#tabs-5
+																																																																																																																																																																																																																																																																																																																       h1 Setup
+																																																																																																																																																																																																																																																																																																																       	    div.option1
+																																																																																																																																																																																																																																																																																																																	        table
+																																																																																																																																																																																																																																																																																																																		     thead.ui-widget-header
+																																																																																																																																																																																																																																																																																																																		           tr
+																																																																																																																																																																																																																																																																																																																			          td Database
+																																																																																																																																																																																																																																																																																																																				           td
+																																																																																																																																																																																																																																																																																																																					        tbody.ui-widget-content          
+																																																																																																																																																																																																																																																																																																																										      tr
+																																																																																																																																																																																																																																																																																																																										             td Database Type
+																																																																																																																																																																																																																																																																																																																											     		      td
+																																																																																																																																																																																																																																																																																																																													              select(disabled="disabled")
+																																																																																																																																																																																																																																																																																																																														               option MySql
+																																																																																																																																																																																																																																																																																																																															       	           tr 
+																																																																																																																																																																																																																																																																																																																																	            td Database
+																																																																																																																																																																																																																																																																																																																																		             td
+																																																																																																																																																																																																																																																																																																																																			             input(disabled="disabled", value="logic_1")
+																																																																																																																																																																																																																																																																																																																																				     				     tr 
+																																																																																																																																																																																																																																																																																																																																								     	      td User
+																																																																																																																																																																																																																																																																																																																																									      	       td
+																																																																																																																																																																																																																																																																																																																																										               input(disabled="disabled", value="god") 
+																																																																																																																																																																																																																																																																																																																																											       				  	           tr 
+																																																																																																																																																																																																																																																																																																																																																	            td Password
+																																																																																																																																																																																																																																																																																																																																																		             td
+																																																																																																																																																																																																																																																																																																																																																			             input(disabled="disabled", value="password", type="password")
+																																																																																																																																																																																																																																																																																																																																																				     						    table
+																																																																																																																																																																																																																																																																																																																																																										         thead.ui-widget-header
+																																																																																																																																																																																																																																																																																																																																																											       tr 
+																																																																																																																																																																																																																																																																																																																																																											       	        td 
+																																																																																																																																																																																																																																																																																																																																																													          h2 Other
+																																																																																																																																																																																																																																																																																																																																																														           td
+																																																																																																																																																																																																																																																																																																																																																															          td
+																																																																																																																																																																																																																																																																																																																																																																         td
+																																																																																																																																																																																																																																																																																																																																																																	      tbody.ui-widget-content
+																																																																																																																																																																																																																																																																																																																																																																	            tr 
+																																																																																																																																																																																																																																																																																																																																																																		             td|Chat
+																																																																																																																																																																																																																																																																																																																																																																			            td|On Import
+																																																																																																																																																																																																																																																																																																																																																																				    	        td|Zen For Web
+																																																																																																																																																																																																																																																																																																																																																																						       	        td
+																																																																																																																																																																																																																																																																																																																																																																								        button|more
