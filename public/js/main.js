@@ -1,6 +1,20 @@
 $(document).ready(function(){
-    $.getScript('/socket.io/socket.io.js', function(){
-		var socket = io.connect()
+	$.getScript('/socket.io/socket.io.js', function(){
+    	var socket = io.connect();
+    	$.getScript('/js/settings.js',function(){
+    		var settings = new Settings()
+    		$('.'+settings['submit_class']).live('change',function(){
+    			console.log(this.value)
+    			settings.change_handler(this)
+    			console.log('after handler')
+    		})
+    		console.log(settings.change_handler)
+    	});
+    	/*
+    	var settings = new settings_file.Settings();
+		console.log(settings)
+		$(settings.submit_class).live('change',settings.change_handler)
+		*/
 		$('form').submit( function(ev){
 		    ev.preventDefault();
 		    var form    	= $(this),
