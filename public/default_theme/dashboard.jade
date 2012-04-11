@@ -6,10 +6,6 @@ script(type='text/javascript')
 			console.log( css_url );
 			$('link').next().attr( 'href', css_url );
 		});
-		$('input[onfinishinput]').live("keypress", function(e){		
-			startTypingTimer($(e.target));
-		}); 
-
 	});
 div.page_panel.dashboard_wrapper
 	div#settings.full_page
@@ -37,15 +33,15 @@ div.page_panel.dashboard_wrapper
 								tr
 									td User Name
 									td
-										input(placeholder='alix', class='auto-submit-text')
+										input(placeholder='alix', class='auto-submit')
 								tr
 									td Email
 									td
-										input(placeholder='alix@politeauthority.com', class='auto-submit-text')
+										input(placeholder='alix@politeauthority.com', class='auto-submit')
 								tr
 									td Time Format
 									td
-										input(placeholder='m d y', class='auto-submit-text')
+										input(placeholder='m d y', class='auto-submit')
 						table
 							thead.ui-widget-header
 								tr
