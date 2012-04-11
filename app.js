@@ -7,21 +7,22 @@ var config = require('./config.js');
 var express = require('express');
 var routes = require('./routes');
 var jade = require('jade');
-var acc_login = require('./lib/account_login.js');
+var account = require('./lib/account.js');
 var app = module.exports = express.createServer();
 var io = require('socket.io').listen(app);
 
-var db_controller = new db_base.Dbase_controller(config['config']['db_host'],config['config']['db_port'],config['config']['db_user'],config['config']['db_pass'],config['config']['db_pool_size']);
+var db_controller = new db_base.Dbase_controller(config['db_settings']['db_host'],config['db_settings']['db_port'],config['db_settings']['db_user'],config['db_settings']['db_pass'],config['db_settings']['db_pool_size']);
 db_controller.create_connection_pool();
 
 // Configuration
 app.configure(function(){
-  app.set('views', __dirname + '/views');
+  app.set('views', __dirname + '/public/');
   app.set('view engine', 'jade');
   app.set('db', db_controller);
+  app.set('config', config);
   app.use(express.bodyParser());
   app.use(express.methodOverride());
-  app.use(require('stylus').middleware({ src: __dirname + '/public' }));
+  app.use(require('stylus').middleware({ src: __dirname + '/public'}));
   app.use(app.router);
   app.use(express.static(__dirname + '/public'));
 });
@@ -36,8 +37,10 @@ app.configure('production', function(){
 // Routes
 app.get('/', routes.index);
 io.sockets.on('connection', function(socket){
-  acc_login = new acc_login.account_login(socket,jade,db_controller);
+  console.log('before login creation')
+  account_login = new account.login(socket,jade,db_controller);
+  console.log('after login creation')
 })
 
-app.listen(config['config']['app_port']);
+app.listen(config['app_settings']['app_port']);
 console.log("Express server listening on port %d in %s mode", app.address().port, app.settings.env);
