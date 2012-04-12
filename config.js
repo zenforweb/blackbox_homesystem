@@ -7,7 +7,8 @@ exports.db_settings = {
   'db_user':'root',
   'db_pass':'cleancut',
   'db_port':'3306',
-  'db_pool_size':'20'
+  'db_pool_size':'20',
+  'database_name':'bbox_homesystem_chris'
 }
 
 /* ALIX*/
