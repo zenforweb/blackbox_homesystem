@@ -4,10 +4,12 @@
 
 var db_base = require('./lib/dbase.js');
 var config = require('./config.js');
+var account = require('./lib/account.js');
+var dashboard = require('./lib/dashboard.js');
+
 var express = require('express');
 var routes = require('./routes');
 var jade = require('jade');
-var account = require('./lib/account.js');
 var app = module.exports = express.createServer();
 var io = require('socket.io').listen(app);
 
@@ -37,9 +39,8 @@ app.configure('production', function(){
 // Routes
 app.get('/', routes.index);
 io.sockets.on('connection', function(socket){
-  console.log('before login creation')
-  account_login = new account.login(socket,jade,db_controller);
-  console.log('after login creation')
+  dashboard_controller = new dashboard.dashboard_controller(socket,jade,db_controller);
+  account = new account.account_controller(socket,jade,db_controller);
 })
 
 app.listen(config['app_settings']['app_port']);
