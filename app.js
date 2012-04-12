@@ -40,7 +40,7 @@ app.configure('production', function(){
 app.get('/', routes.index);
 io.sockets.on('connection', function(socket){
   dashboard_controller = new dashboard.dashboard_controller(socket,jade,db_controller);
-  account = new account.account_controller(socket,jade,db_controller);
+  account = new account.account_controller(socket,jade,db_controller,dashboard_controller,config);
 })
 
 app.listen(config['app_settings']['app_port']);
