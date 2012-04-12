@@ -1,14 +1,30 @@
 $(document).ready(function(){
 	$.getScript('/socket.io/socket.io.js', function(){
+		$('.settings-edit').live('click', function(){
+			var edit_btn	= $(this),
+				table 		= edit_btn.closest('table'),
+				placeholder = table.find('.auto-submit-off'),
+				input 		= table.find('.auto-submit');
+			if( input.hasClass('hide') ){
+				input.removeClass('hide');
+				placeholder.addClass('hide');
+			} else {
+				placeholder.each( function(){
+					var this_input_val = $(this).closest('td').find('.auto-submit').val();
+					console.log( this_input_val );
+					$(this).text( this_input_val );
+				});
+				input.addClass('hide');
+				placeholder.removeClass('hide');
+			}
+		});
     	var socket = io.connect();
     	$.getScript('/js/settings.js',function(){
-    		var settings = new Settings()
-    		$('.'+settings['submit_class']).live('change',function(){
-    			console.log(this.value)
-    			settings.change_handler(this)
-    			console.log('after handler')
-    		})
-    		console.log(settings.change_handler)
+    		var settings = new Settings();
+    		$('.'+settings['submit_class']).live('change',function(){			
+    			settings.change_handler( $(this) );
+    		});
+    		//console.log(settings.change_handler)
     	});
     	/*
     	var settings = new settings_file.Settings();

@@ -46,24 +46,15 @@
   width: 90%;
   margin: auto;
 }
-.full_page .option3,
-.full_page .option2 {
-  float: left;
-}
 .full_page .option3 {
   width: 33%;
 }
 .full_page .option2 {
-  width: 50%;
+  width: 48%;
+  padding: 5px;
 }
 .full_page .option2 table {
   width: 100%;
-}
-.full_page .option2 :nth-child(1) {
-  padding-right: 15px;
-}
-.full_page .option2 :nth-child(2) {
-  padding-left: 15px;
 }
 .full_page .option1 table {
   width: 100%;
@@ -94,7 +85,6 @@ input {
   border-radius: 3px;
 }
 #desktop {
-  background-image: url("/themes/blocks/images/bgs/user_1.jpeg");
   background-position: -957px -985px;
 }
 *:focus {
