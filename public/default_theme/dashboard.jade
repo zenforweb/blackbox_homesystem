@@ -23,25 +23,34 @@ div.page_panel.dashboard_wrapper
 				li
 					a(href='#tabs-5')|Setup			
 			div#tabs-1
-				div.option2
+				div.option2.floatLeft
 					form
 						table
 							thead.ui-widget-header
 								tr
-									td(colspan='2')| Your Info
+									td(colspan='2')
+										span.floatLeft Your Info
+										span.floatRight.settings-edit.ui-icon.ui-icon-pencil
+										div(style='clear:both;')
 							tbody.ui-widget-content
 								tr
 									td User Name
 									td
-										input(placeholder='alix', class='auto-submit')
+										span.auto-submit-off
+											|Alix
+										input.hide(name="user_name", placeholder='alix', class='auto-submit')
 								tr
 									td Email
 									td
-										input(placeholder='alix@politeauthority.com', class='auto-submit')
+										span.auto-submit-off
+											|alix@politeauthority.com
+										input.hide(name="user_email", placeholder='alix@politeauthority.com', class='auto-submit')
 								tr
 									td Time Format
 									td
-										input(placeholder='m d y', class='auto-submit')
+										span.auto-submit-off
+											|4:12pm Wed Apr 10							
+										input.hide(name="user_timedisplay", placeholder='4:12pm Wed Apr 10', class='auto-submit')
 						table
 							thead.ui-widget-header
 								tr
@@ -59,7 +68,7 @@ div.page_panel.dashboard_wrapper
 									td Confirm Password
 									td
 										input(type='password')
-				div.option2
+				div.option2.floatRight
 					table
 						thead.ui-widget-header
 							tr
@@ -280,8 +289,8 @@ div.page_panel.dashboard_wrapper
 								td
 						tbody.ui-widget-content
 							tr	
-								td|Chat
-								td|On Import
-								td|Zen For Web
+								td Chat
+								td On Import
+								td Zen For Web
 								td
-									button|more
+									button more
