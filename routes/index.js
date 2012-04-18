@@ -3,7 +3,7 @@
  */
 exports.index = function(req, res){
   /*app.settings['config']*/
-  res.render('./default_theme/index', {
+  res.render('./themes/tranquility/views/index', {
     'title': 'Blackbox',
     'test': 'asas',
     'port': ''

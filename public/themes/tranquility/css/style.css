@@ -19,7 +19,7 @@
   padding: 30px;
 }
 .full_page {
-  background-image: url("/images/ui/white30.png");
+  background-image: url("/../themes/tranquility/images/ui/white30.png");
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   -o-border-radius: 5px;
@@ -78,15 +78,6 @@
 #mobile {
   width: 200px;
 }
-input {
-  -webkit-border-radius: 3px;
-  -moz-border-radius: 3px;
-  -o-border-radius: 3px;
-  border-radius: 3px;
-}
-#desktop {
-  background-position: -957px -985px;
-}
 *:focus {
   outline: none;
 }
@@ -116,7 +107,7 @@ input {
   border: 1px solid #000;
 }
 .loading {
-  background-image: url("/images/ajax-loader.gif");
+  background-image: url("/../themes/tranquility/images/ajax-loader.gif");
   background-repeat: no-repeat;
   height: 33px;
   width: 33px;
@@ -141,6 +132,7 @@ body {
   width: 100%;
   overflow: hidden;
   margin-top: 10px;
+  background-color: #f00;
 }
 #login {
   margin: 0 auto;
@@ -151,7 +143,7 @@ body {
   width: 33px;
 }
 .frontEndInput {
-  background-image: url("/images/ui/input.png");
+  background-image: url("/../themes/tranquility/images/ui/input.png");
   background-repeat: no-repeat;
   border: 0;
   background-color: transparent;

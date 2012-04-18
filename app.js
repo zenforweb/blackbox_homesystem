@@ -2,17 +2,11 @@
  * Module dependencies.
  */
 
-
 var config = require('./config.js');
-
-
 var express = require('express');
 var routes = require('./routes');
-
 var app = module.exports = express.createServer();
 var io = require('socket.io').listen(app);
-
-
 
 // Configuration
 app.configure(function(){
@@ -43,11 +37,7 @@ io.sockets.on('connection', function(socket){
   var jade = require('jade');
   var db_controller = new db_base.Dbase_controller(config['db_settings']['db_host'],config['db_settings']['db_port'],config['db_settings']['db_user'],config['db_settings']['db_pass'],config['db_settings']['db_pool_size']);
 db_controller.create_connection_pool();
-  console.log('on connection')
   dashboard_controller = new dashboard.dashboard_controller(socket,jade,db_controller);
-  console.log('post dashboard')
-  console.log(account)
-  console.log('post account')
   try{
     account = new account.account_controller(socket,jade,db_controller,dashboard_controller,config);
   }
