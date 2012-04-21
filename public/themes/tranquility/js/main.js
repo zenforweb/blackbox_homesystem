@@ -19,7 +19,7 @@ $(document).ready(function(){
 			}
 		});
     	var socket = io.connect();
-    	$.getScript('/js/settings.js',function(){
+    	$.getScript('/themes/tranquility/js/settings.js',function(){
     		var settings = new Settings();
     		$('.'+settings['submit_class']).live('change',function(){			
     			settings.change_handler( $(this) );
@@ -33,7 +33,7 @@ $(document).ready(function(){
 		*/
 		$('form').submit( function(ev){
 		    ev.preventDefault();
-		    var form    	= $(this),
+		    var form    = $(this),
 		    form_id 	= form.attr('id'),
 		    input_value	= form.find('input').val()
 		    loading = $('#loading');

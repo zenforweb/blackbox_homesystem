@@ -1,4 +1,10 @@
 /* CHRIS */
+exports.app_install = {
+    'install_state':10,
+    'install_message':'ready to install',
+    'data_storage':'', /*Example, MYSQL is prob all we care about.*/
+    'data_storage_version':'' /*Example, 14.14 Distrib 5.1.61 */
+}
 exports.app_settings = {
   'app_port':3737
 }
@@ -22,3 +28,4 @@ exports.config = {
   'db_pool_size':'20'
 }
 */
+
