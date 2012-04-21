@@ -8,6 +8,7 @@ var config = require('./config.js');
 
 var express = require('express');
 var routes = require('./routes');
+var exec = require('child_process').exec;
 
 var app = module.exports = express.createServer();
 var io = require('socket.io').listen(app);
@@ -35,7 +36,21 @@ app.configure('production', function(){
 });
 
 // Routes
-app.get('/', routes.index);
+if (config['app_install']['install_state'] == 10){
+  app.get('/', routes.index);
+}else if (config['app_install']['install_state'] == -1){
+  app.get('/', routes.install_fail);
+}else if (config['app_install']['install_state'] == 0){
+  app.get('/', routes.install_configure);
+}else if (config['app_install']['install_state'] == 2){
+  app.get('/', routes.install_user_setup);
+}else if (config['app_install']['install_state'] == 4){
+  app.get('/', routes.install_tutorial);
+}
+
+
+
+
 io.sockets.on('connection', function(socket){
   var db_base = require('./lib/dbase.js');
   var account = require('./lib/account.js');
