@@ -1,85 +1,12 @@
 @import 'lib/reset.css';
-#desktop {
-  background-repeat: repeat-x;
-  background-attachment: fixed;
-  width: 1110px;
-}
-#desktop #wrap {
-  margin: auto;
-}
-.page_panel {
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  -o-border-radius: 15px;
-  border-radius: 15px;
-  width: 800px;
-  position: relative;
-  display: none;
-  margin: 0 auto;
-  padding: 30px;
-}
-.full_page {
-  background-image: url("/../themes/tranquility/images/ui/white30.png");
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
-  -moz-box-shadow: 3px 2px 1px;
-  -webkit-box-shadow: 3px 2px 1px;
-  box-shadow: 3px 2px 1px;
-}
-.full_page table {
-  margin-top: 5px;
-  margin-bottom: 15px;
-}
-.full_page table thead tr td {
-  padding: 8px;
-}
-.full_page table tbody tr td {
-  padding: 4px;
-  vertical-align: middle;
-}
-.full_page table tbody tr:nth-child(even) {
-  background-color: #dedede;
-}
-.full_page #tabs {
-  width: 90%;
-  margin: auto;
-}
-.full_page .option3 {
-  width: 33%;
-}
-.full_page .option2 {
-  width: 48%;
-  padding: 5px;
-}
-.full_page .option2 table {
-  width: 100%;
-}
-.full_page .option1 table {
-  width: 100%;
-}
-.page_panel .login_wrapper {
-  margin-top: 100px;
-}
-#ipad {
-  background-image: url("http://politeauthority.com/remote/blackbox/images/main/gradient-1.png");
-  background-repeat: repeat-x;
-  background-attachment: fixed;
-  width: 1000px;
-}
-#ipad #wrap {
-  width: 1000px;
-  margin: auto;
-}
-#iphone {
-  width: 400px;
-}
-#mobile {
-  width: 200px;
-}
 *:focus {
   outline: none;
+}
+.floatRight {
+  float: right;
+}
+.floatLeft {
+  float: left;
 }
 .clearFix .clearAll {
   width: 100%;
@@ -92,12 +19,6 @@
 .hide {
   display: none;
 }
-.floatRight {
-  float: right;
-}
-.floatLeft {
-  float: left;
-}
 .button {
   background-color: #fff;
   -webkit-border-radius: 8px;
@@ -106,32 +27,98 @@
   border-radius: 8px;
   border: 1px solid #000;
 }
-.loading {
-  background-image: url("/../themes/tranquility/images/ajax-loader.gif");
-  background-repeat: no-repeat;
-  height: 33px;
-  width: 33px;
-}
-h1 {
-  font-size: 20px;
-}
-h1 {
-  font-size: 16px;
-}
-.text-notify {
-  font-style: itallic;
-}
-.text-warn {
-  color: #f00;
+.textRed {
+  font-color: #f00;
 }
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+h1 {
+  font-size: 42px;
+}
+h2 {
+  font-size: 20px;
+}
 #wrap {
-  position: absolute;
-  width: 100%;
+  width: 800px;
   overflow: hidden;
   margin-top: 10px;
+  margin: auto;
+  text-align: center;
+  margin-top: 100px;
+}
+#title {
+  font-size: 20px;
+}
+#info {
+  padding: 15px;
+  margin: 10px;
+  -webkit-border-radius: 10px;
+  -moz-border-radius: 10px;
+  -o-border-radius: 10px;
+  border-radius: 10px;
+  text-align: left;
+}
+#info-head {
+  border-bottom: 1px solid #d0d0d0;
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+}
+#continue {
+  margin-top: 40px;
+  padding-bottom: 10px;
+}
+.options {
+  text-align: center;
+}
+.general-info {
+  border: 1px solid #d0d0d0;
+  -moz-box-shadow: 0 0 8px #d0d0d0;
+  -webkit-box-shadow: 0 0 8px #d0d0d0;
+  box-shadow: 0 0 8px #d0d0d0;
+}
+.failed-info {
+  border: 1px solid #f00;
+  -moz-box-shadow: 0 0 8px #f00;
+  -webkit-box-shadow: 0 0 8px #f00;
+  box-shadow: 0 0 8px #f00;
+}
+.good-info {
+  border: 1px solid #008000;
+  -moz-box-shadow: 0 0 8px #008000;
+  -webkit-box-shadow: 0 0 8px #008000;
+  box-shadow: 0 0 8px #008000;
+}
+input {
+  font-size: 30px;
+  padding: 5px;
+  margin: 5px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+}
+.normal {
+  border: 1px solid #ccc;
+  -moz-box-shadow: 0 0 8px #d0d0d0;
+  -webkit-box-shadow: 0 0 8px #d0d0d0;
+  box-shadow: 0 0 8px #d0d0d0;
+}
+.button {
+  font-size: 18px;
+}
+.active {
+  border: 1px solid #008000;
+  -moz-box-shadow: 0 0 8px #008000;
+  -webkit-box-shadow: 0 0 8px #008000;
+  box-shadow: 0 0 8px #008000;
+}
+ul li {
+  list-style: none;
+}
+ul ul {
+  padding-left: 10px;
 }
 #login {
   margin: 0 auto;
@@ -140,22 +127,4 @@ body {
 #loading {
   margin: 0 auto;
   width: 33px;
-}
-.frontEndInput {
-  background-image: url("/../themes/tranquility/images/ui/input.png");
-  background-repeat: no-repeat;
-  border: 0;
-  background-color: transparent;
-  height: 30px;
-  width: 200px;
-  padding: 5px;
-  padding-left: 10px;
-  margin-bottom: 10px;
-  font-family: Helvetica;
-  color: #fff;
-  font-size: 24px;
-}
-.activated_panel {
-  display: block;
-  position: relative;
 }

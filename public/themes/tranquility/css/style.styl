@@ -1,11 +1,12 @@
-@import 'lib/reset.css'
-@import 'lib/css3'
+//imports will need to be fixed using sys lvl
+@import './../../../sys/css/lib/reset.css'
+@import './../../../sys/css/lib/css3'
 @import 'browser/desktop'
 @import 'browser/ipad'
 @import 'browser/iphone'
 @import 'browser/mobile'
-@import 'lib/helpers'
-@import 'lib/text'
+@import './../../../sys/css/lib/helpers'
+@import 'text'
 
 //  Generic CSS
 body
@@ -42,3 +43,9 @@ body
 .activated_panel
   display: block
   position: relative
+
+.loading
+  background-image url('/../themes/tranquility/images/ui/ajax-loader.gif')
+  background-repeat no-repeat
+  height 33px
+  width 33px  

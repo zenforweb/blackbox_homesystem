@@ -1,10 +1,9 @@
 !!!
 html
   head
-    title= 'blackbox'    
-    script(type='text/javascript')
-      var a = '#{test}'
-      console.log(a)
-    link(rel='stylesheet', href='css/style.css')
-    link(rel='stylesheet', href='css/jquery-ui-themes/flick/jquery-ui-1.8.18.custom.css')
+    title= 'Blackbox'
+    script(src='sys/js/jquery-1.7.1.min.js', type='text/javascript')
+    script(src='sys/js/jquery-md5.min.js', type='text/javascript')
+    link(rel='stylesheet', href='/sys/css/style.css')
+    link(rel='stylesheet', href='/sys/css/jquery-ui-themes/flick/jquery-ui-1.8.18.custom.css')
   body!= body

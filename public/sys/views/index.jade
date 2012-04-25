@@ -1,0 +1,29 @@
+script(type='text/javascript')
+	$(document).ready(function(){
+		$('input').focus(function(){
+			var input = $(this);
+			$('input').each(function(){ $(this).removeClass('active').addClass('normal'); });
+			input.removeClass('normal').addClass('active');
+		});
+	});
+div#wrap
+	h1| Welcome to Blackbox!
+	div#info.general-info
+		div#info-head
+			h2 Install was successfull!
+			|Lets get started, pick your username and password, then hit next.
+		div.options
+			form(action='', method='')
+				input.active(name='user_name', placeholder='admin', autofocus='autofocus')
+				label.hide(for='user_name') User Name
+				br
+				input.normal(name='user_email', placeholder='email@example.com')
+				label.hide(for='user_email') Email
+				br
+				input#password1.normal(name='password_1', type='password', placeholder='password')
+				label.hide(for='password_1') Password
+				br
+				input.normal.password(name='password_2', type='password', placeholder='confirm password')
+				label.hide(for='password_2') Confirm Password
+				br
+				input.button(type='submit', value='Go!')

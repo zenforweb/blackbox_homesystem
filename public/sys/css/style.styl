@@ -1,44 +1,68 @@
 @import 'lib/reset.css'
 @import 'lib/css3'
-@import 'browser/desktop'
-@import 'browser/ipad'
-@import 'browser/iphone'
-@import 'browser/mobile'
 @import 'lib/helpers'
-@import 'lib/text'
-
 //  Generic CSS
 body
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif
+h1
+  font-size: 42px
+h2
+  font-size: 20px
 #wrap
-  position: absolute
-  width: 100%
+  width: 800px
   overflow: hidden
   margin-top:10px
-
+  margin auto
+  text-align center
+  margin-top 100px
+#title
+  font-size 20px
+#info
+  padding 15px
+  margin: 10px;
+  border-radius(10px)
+  text-align left
+#info-head
+ border-bottom 1px solid #D0D0D0
+ padding 10px;
+ margin: 10px;
+ text-align center
+#continue
+  margin-top 40px
+  padding-bottom 10px
+.options
+  text-align center
+.general-info
+  border: 1px solid #D0D0D0
+  box-shadow(0 0 8px #D0D0D0)
+.failed-info
+  border: 1px solid red
+  box-shadow(0 0 8px red)
+.good-info
+  border: 1px solid green
+  box-shadow(0 0 8px green)
+input
+  font-size: 30px
+  padding 5px
+  margin 5px
+  border-radius(3px)
+.normal
+  border 1px solid #CCCCCC
+  box-shadow(0 0 8px #D0D0D0)
+.button
+  font-size 18px
+.active
+  border 1px solid green
+  box-shadow(0 0 8px green)
+ul
+  li
+    list-style none
+  ul
+    padding-left 10px
 //  Splash Page
 #login
   margin: 0 auto
   width: 215px
-
 #loading
   margin: 0 auto
   width: 33px
-
-.frontEndInput
-  background-image: url('/../themes/tranquility/images/ui/input.png')
-  background-repeat: no-repeat
-  border: 0
-  background-color: transparent
-  height: 30px
-  width: 200px
-  padding: 5px
-  padding-left: 10px
-  margin-bottom: 10px
-  font-family: Helvetica
-  color: white
-  font-size: 24px
-
-.activated_panel
-  display: block
-  position: relative

@@ -1,4 +1,4 @@
-@import 'lib/reset.css';
+@import './../../../sys/css/lib/reset.css';
 #desktop {
   background-repeat: repeat-x;
   background-attachment: fixed;
@@ -81,6 +81,12 @@
 *:focus {
   outline: none;
 }
+.floatRight {
+  float: right;
+}
+.floatLeft {
+  float: left;
+}
 .clearFix .clearAll {
   width: 100%;
   display: block;
@@ -92,12 +98,6 @@
 .hide {
   display: none;
 }
-.floatRight {
-  float: right;
-}
-.floatLeft {
-  float: left;
-}
 .button {
   background-color: #fff;
   -webkit-border-radius: 8px;
@@ -106,11 +106,8 @@
   border-radius: 8px;
   border: 1px solid #000;
 }
-.loading {
-  background-image: url("/../themes/tranquility/images/ajax-loader.gif");
-  background-repeat: no-repeat;
-  height: 33px;
-  width: 33px;
+.textRed {
+  font-color: #f00;
 }
 h1 {
   font-size: 20px;
@@ -132,7 +129,6 @@ body {
   width: 100%;
   overflow: hidden;
   margin-top: 10px;
-  background-color: #f00;
 }
 #login {
   margin: 0 auto;
@@ -159,4 +155,10 @@ body {
 .activated_panel {
   display: block;
   position: relative;
+}
+.loading {
+  background-image: url("/../themes/tranquility/images/ui/ajax-loader.gif");
+  background-repeat: no-repeat;
+  height: 33px;
+  width: 33px;
 }
