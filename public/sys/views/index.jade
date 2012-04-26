@@ -1,29 +1,48 @@
-script(type='text/javascript')
-	$(document).ready(function(){
-		$('input').focus(function(){
-			var input = $(this);
-			$('input').each(function(){ $(this).removeClass('active').addClass('normal'); });
-			input.removeClass('normal').addClass('active');
-		});
-	});
 div#wrap
 	h1| Welcome to Blackbox!
 	div#info.general-info
-		div#info-head
-			h2 Install was successfull!
-			|Lets get started, pick your username and password, then hit next.
-		div.options
-			form(action='', method='')
-				input.active(name='user_name', placeholder='admin', autofocus='autofocus')
-				label.hide(for='user_name') User Name
-				br
-				input.normal(name='user_email', placeholder='email@example.com')
-				label.hide(for='user_email') Email
-				br
-				input#password1.normal(name='password_1', type='password', placeholder='password')
-				label.hide(for='password_1') Password
-				br
-				input.normal.password(name='password_2', type='password', placeholder='confirm password')
-				label.hide(for='password_2') Confirm Password
-				br
-				input.button(type='submit', value='Go!')
+		div#storage.options.show
+			div#info-head
+				h2 Install was successfull!
+				|Just a few more steps to home automation!		
+			h3 Storage
+			p What type of storage engine would you like to use?
+			select(name='engine')
+				option MySQL
+				option SQL Lite
+			br
+			button#next.button(type='submit', value='storage_mysql_info') Go
+		div#storage_mysql_info.options.hide
+			div#info-head
+				h2 MySQL Credentials!
+				|Supply your MySQL credentials so Blackbox can make a database!
+			input.active(name='mysql_user_name', placeholder='user name', autofocus='autofocus')
+			label.hide(for='mysql_user_name') user name
+			br
+			input.normal(name='mysql_password', placeholder='password')
+			label.hide(for='mysql_password') MySQL password
+			br
+			input.normal(name='mysql_db_name', placeholder='blackbox')
+			label.hide(for='mysql_db_name') MySQL database name
+			br
+			input.normal.password(name='mysql_table_prefix', placeholder='bb_')
+			label.hide(for='mysql_table_prefix') MySQL table prefix
+			br
+			button#next.button(type='submit', value='user_info') Go	
+		div#user_info.options.hide
+			div#info-head
+				h2 User Setup
+				|Setup your first user, and then we can get started!	
+			input.active(name='user_name', placeholder='admin', autofocus='autofocus')
+			label.hide(for='user_name') User Name
+			br
+			input.normal(name='user_email', placeholder='email@example.com')
+			label.hide(for='user_email') Email
+			br
+			input#password1.normal(name='password_1', type='password', placeholder='password')
+			label.hide(for='password_1') Password
+			br
+			input.normal.password(name='password_2', type='password', placeholder='confirm password')
+			label.hide(for='password_2') Confirm Password
+			br
+			input.button(type='submit', value='Go!')

@@ -39,6 +39,12 @@ h1 {
 h2 {
   font-size: 20px;
 }
+ul li {
+  list-style: none;
+}
+ul ul {
+  padding-left: 10px;
+}
 #wrap {
   width: 800px;
   overflow: hidden;
@@ -61,8 +67,8 @@ h2 {
 }
 #info-head {
   border-bottom: 1px solid #d0d0d0;
-  padding: 10px;
-  margin: 10px;
+  padding-bottom: 10px;
+  margin-bottom: 10px;
   text-align: center;
 }
 #continue {
@@ -71,6 +77,13 @@ h2 {
 }
 .options {
   text-align: center;
+}
+.options h3 {
+  font-size: 18px;
+  padding: 5px;
+}
+.options p {
+  padding: 5px;
 }
 .general-info {
   border: 1px solid #d0d0d0;
@@ -99,6 +112,11 @@ input {
   -o-border-radius: 3px;
   border-radius: 3px;
 }
+select {
+  font-size: 20px;
+  padding: 5px;
+  margin: 5px;
+}
 .normal {
   border: 1px solid #ccc;
   -moz-box-shadow: 0 0 8px #d0d0d0;
@@ -113,16 +131,6 @@ input {
   -moz-box-shadow: 0 0 8px #008000;
   -webkit-box-shadow: 0 0 8px #008000;
   box-shadow: 0 0 8px #008000;
-}
-ul li {
-  list-style: none;
-}
-ul ul {
-  padding-left: 10px;
-}
-#login {
-  margin: 0 auto;
-  width: 215px;
 }
 #loading {
   margin: 0 auto;

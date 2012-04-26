@@ -10,9 +10,9 @@ $(document).ready(function(){
 				placeholder.addClass('hide');
 			} else {
 				placeholder.each( function(){
-					var this_input_val = $(this).closest('td').find('.auto-submit').val();
-					console.log( this_input_val );
-					$(this).text( this_input_val );
+					var form_element	= $(this).closest('td').find('.auto-submit'),
+						this_input_val 	= form_element.val();
+					if( this_input_val != ''){ $(this).text( this_input_val ); }
 				});
 				input.addClass('hide');
 				placeholder.removeClass('hide');
@@ -34,9 +34,9 @@ $(document).ready(function(){
 		$('form').submit( function(ev){
 		    ev.preventDefault();
 		    var form    = $(this),
-		    form_id 	= form.attr('id'),
-		    input_value	= form.find('input').val()
-		    loading = $('#loading');
+		    	form_id 	= form.attr('id'),
+		    	input_value	= form.find('input').val(),
+		    	loading = $('#loading');
 		    if( form_id = 'form_login' ){
 			login( form );
 		    } else { }
@@ -61,7 +61,8 @@ $(document).ready(function(){
 				socket.emit('login_attempt', {
 				    'username':$('[name="username"]').val(),
 				    'pass':$.md5($('[name="password"]').val()),
-				    'form_id': form.attr('id')
+				    'form_id': form.attr('id'),
+				    'user_socket': ''
 				});
 		    }
 		}
