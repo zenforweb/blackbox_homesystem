@@ -13,7 +13,7 @@ def log(line_to_log):
 def main(args):
     log('Opening Manifest')
     manifest = json.load(manifest_file)
-    apt_packages = manifest['dependencies']:
+    apt_packages = manifest['dependencies']
     log('Starting Install')
     log('Instantializing Apt_Manager')
     apt_man = apt_manager.Apt_Manager()

@@ -3,7 +3,6 @@ script(type='text/javascript')
 		$( '#tabs' ).tabs();
 		$('#settings').click(function(ev){
 			ev.preventDefault();
-			#{user_socket}.emit('get_settings', {'test':'test2'});
 		});
 	});
 div.page_panel.dashboard_wrapper
