@@ -5,8 +5,8 @@ function Dashboard(socket,utilities){
     /*this_class.tabs['Settings']*/
     $('#settings_link').live('click',function(ev){
         console.log('before prevent default')
-	    ev.preventDefault();
-        this_class.socket.emit('get_settings',{'test','test2'})
+	ev.preventDefault();
+        this_class.socket.emit('get_settings',{'test':'test2'})
     })
 
     /*    var edit_btn        = $(this),

@@ -9,7 +9,7 @@ $(document).ready(function(){
 		    
 		    // load account class
 		    $.getScript('/themes/tranquility/js/account.js', function(){
-				Account_Manager = new Account(socket,utilities);
+				Account_Manager = new Account(socket,utilities)
 		    })
 		    // load dashbaord class to deal with tab transitions
 		    $.getScript('/themes/tranquility/js/dashboard.js', function(){
@@ -20,7 +20,7 @@ $(document).ready(function(){
 			 //    	"Other Tab":".other_tab_class",
 			 //    	"Other Tab 2":"other_tab_2_class"
 				// }
-				Dashboard_Manager = new Dashboard(socket,utilities);
+				Dashboard_Manager = new Dashboard(socket,utilities)
 		    })
 		    $('form').submit( function(ev){
 				ev.preventDefault();
@@ -29,7 +29,7 @@ $(document).ready(function(){
 				input_value	= form.find('input').val(),
 				loading = $('#loading');
 				if( form_id = 'form_login' ){
-			    	Account_Manager.login_attempt( form );
+			    	Account_Manager.login_attempt( form )
 				} else { }
 		    });
 		})
