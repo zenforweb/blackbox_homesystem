@@ -5,7 +5,7 @@
 var config = require('./config.js');
 var express = require('express');
 var routes = require('./routes');
-var exec = require('child_process').exec;
+
 
 
 var app = module.exports = express.createServer();
@@ -38,19 +38,13 @@ if (config['app_install']['install_state'] == 10){
   app.get('/', routes.install_fail);
 }else if (config['app_install']['install_state'] == 0){
   app.get('/', routes.install_configure);
-}else if (config['app_install']['install_state'] == 2){
-  app.get('/', routes.install_user_setup);
-}else if (config['app_install']['install_state'] == 4){
-  app.get('/', routes.install_tutorial);
 }
-
-
-
 
 io.sockets.on('connection', function(socket){
   var db_base = require('./lib/dbase.js');
   var account = require('./lib/account.js');
   var dashboard = require('./lib/dashboard.js');
+  var exec = require('child_process').exec;
   var jade = require('jade');
   var db_controller = new db_base.Dbase_controller(config['db_settings']['db_host'],config['db_settings']['db_port'],config['db_settings']['db_user'],config['db_settings']['db_pass'],config['db_settings']['db_pool_size']);
 db_controller.create_connection_pool();
