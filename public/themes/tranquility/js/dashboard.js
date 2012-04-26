@@ -1,11 +1,15 @@
-function Dashboard(socket,utilities,tab_associations){
+function Dashboard(socket,utilities){
     this.socket = socket;
-    this.tabs = tab_associations;
     this.utilities = utilities;
     this_class = this;
-    $(this_class.tabs['Settings']).live('click',function(ev){
-	ev.preventDefault();
-        var edit_btn        = $(this),
+    /*this_class.tabs['Settings']*/
+    $('#settings_link').live('click',function(ev){
+        console.log('before prevent default')
+	    ev.preventDefault();
+        this_class.socket.emit('get_settings',{'test','test2'})
+    })
+
+    /*    var edit_btn        = $(this),
         table               = edit_btn.closest('table'),
         placeholder = table.find('.auto-submit-off'),
         input               = table.find('.auto-submit');
@@ -22,4 +26,5 @@ function Dashboard(socket,utilities,tab_associations){
             placeholder.removeClass('hide');
         }	
     })
+    */
 };

@@ -3,16 +3,16 @@ function Account(socket,utilities){
     this.utilities = utilities;
     this_class = this;
     this_class.login_attempt = function(form){
-	if (this.utilities.validate_form(form)){
-	    this_class.socket.emit('login_attempt',{
-		'username':$('[name="username"]').val(),
-		'pass':$.md5($('[name="password"]').val()),
-		'form_id': form.attr('id'),
-	    })
-	}
+    	if (this.utilities.validate_form(form)){
+    	    this_class.socket.emit('login_attempt',{
+        		'username':$('[name="username"]').val(),
+        		'pass':$.md5($('[name="password"]').val()),
+        		'form_id': form.attr('id')
+    	    })
+    	}
     }
     this_class.socket.on('login_success',function(page){
-	var success_page = $(page['page'])
+    	var success_page = $(page['page'])
         success_page.animate({
             left: '+=1000'
         })
@@ -23,9 +23,9 @@ function Account(socket,utilities){
             })
             $(this).remove();
         })
-            success_page.css('display', 'block');
+        success_page.css('display', 'block');
         success_page.animate({
-	    left: '-=1000'
+	       left: '-=1000'
         })
     })
     this_class.socket.on('login_failure',function(page){
