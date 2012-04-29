@@ -12,21 +12,19 @@ function Account(socket,utilities){
     	}
     }
     this_class.socket.on('login_success',function(page){
-    	var success_page = $(page['page'])
-        success_page.animate({
-            left: '+=1000'
-        })
-        success_page.appendTo('#wrap')
-        $.each($('.activated_panel'),function(){
-            $(this).animate({
-                left: '-=1000'
-            })
-            $(this).remove();
-        })
-        success_page.css('display', 'block');
-        success_page.animate({
-	       left: '-=1000'
-        })
+    	var success_page = $(page['page']);
+        $('.page_panel').addClass('ready_animate').animate({
+            opacity: 0.0,
+            top: '+=-400'
+            }, 500, function(){
+                $('.page_panel').remove();
+                $('#wrap').append( success_page );
+                var page_panel = $('.page_panel');
+                page_panel.animate({
+                    opacity: 1,
+                }, 500);
+            }
+        );      
     })
     this_class.socket.on('login_failure',function(page){
         var form = $('#'+page['form_id']);
