@@ -1,6 +1,10 @@
 function Dashboard(socket,utilities){
     this.socket = socket;
     this.utilities = utilities;
+    $.getScript('/themes/tranquility/js/settings.js', function(){
+	this.settings_controller = new Settings_Controller(socket,utilities)
+    })
+    this.settings_controller
     this_class = this;
     /*this_class.tabs['Settings']*/
     $('#dashboard_link').live('click', function(ev){
