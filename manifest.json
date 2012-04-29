@@ -1,1 +1,18 @@
-{"dependencies":["nodejs:v0.4.9","npm:0.2.19"]}
+{
+	"dependencies":[
+		"npm"
+		"g++",
+		"curl",
+		"libssl-dev",
+		"apache2-utils",
+		"openssl",
+		"git-core"
+	],
+	"node_config":{
+		"is_apt":0,
+		"is_git":1,
+		"git_clone_url":"https://github.com/joyent/node.git",
+		"download_location":"./src_installs/"
+		"src_install":""
+	}
+}
