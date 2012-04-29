@@ -1,8 +1,46 @@
 script(type='text/javascript')
 	$(function() {
-		$( '#tabs' ).tabs();
+		$( '.col' ).sortable({
+			connectWith: '.col'
+		});
+		$( '.portlet' ).addClass( 'ui-widget ui-widget-content ui-helper-clearfix ui-corner-all' )
+			.find( '.portlet-header' )
+				.addClass( 'ui-widget-header ui-corner-all' )
+				.prepend( '<span class="ui-icon ui-icon-minusthick"></span>')
+				.end()
+			.find( '.portlet-content' );
+		$( '.portlet-header .ui-icon' ).click(function() {
+			$( this ).toggleClass( 'ui-icon-minusthick' ).toggleClass( 'ui-icon-plusthick' );
+			$( this ).parents( '.portlet:first' ).find( '.portlet-content' ).toggle();
+		});
+		$( '.col' ).disableSelection();
 	});
-div.page_panel.dashboard_wrapper
-	div#settings.full_page
-		h1 Dashboard
-		a#settings_link(href='settings')|hjgkjhvhvjh
+div#nav
+	ul
+		li 
+			a#dashboard_link(href='dashboard')|dashboard
+		li
+			a#settings_link(href='settings')|settings
+	div.clearFix
+div#viewport
+	div#page_dashboard.page_panel.active_panel.full_page
+		div#col_right.col
+			div.portlet
+				div.portlet-header|Feeds
+				div.portlet-content
+					|Lorem ipsum dolor sit amet, consectetuer adipiscing elit	
+		div#col_left.col
+			div.portlet
+				div.portlet-header|Boom
+				div.portlet-content
+					|Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+		div#col_center.col
+			div.portlet
+				div.portlet-header|Weather
+				div.portlet-content
+					|Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+			div.portlet
+				div.portlet-header|Boom
+				div.portlet-content
+					|Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+		div(style='clear:both;')

@@ -2,31 +2,41 @@
 #desktop {
   background-repeat: repeat-x;
   background-attachment: fixed;
-  width: 1110px;
+  margin: auto;
+  width: 950px;
 }
 #desktop #wrap {
+  height: 400px;
+}
+#desktop #wrap #nav {
+  width: 750px;
+  height: 50px;
   margin: auto;
 }
-.page_panel {
-  -webkit-border-radius: 15px;
-  -moz-border-radius: 15px;
-  -o-border-radius: 15px;
-  border-radius: 15px;
-  width: 800px;
-  position: relative;
-  display: none;
-  margin: 0 auto;
-  padding: 30px;
+#desktop #wrap #nav ul {
+  float: right;
 }
-.full_page {
-  background-image: url("/../themes/tranquility/images/ui/white30.png");
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  -o-border-radius: 5px;
-  border-radius: 5px;
-  -moz-box-shadow: 3px 2px 1px;
-  -webkit-box-shadow: 3px 2px 1px;
-  box-shadow: 3px 2px 1px;
+#desktop #wrap li {
+  float: left;
+  list-style: none;
+}
+#desktop #wrap #viewport,
+#desktop #wrap overflow hidden {
+  position: relative;
+  height: 400px;
+}
+.page_panel {
+  position: absolute;
+  width: 100%;
+}
+.ready_animate {
+  top: 1000px;
+}
+.activated_panel {
+  display: block;
+}
+.page_hide {
+  opacity: 0;
 }
 .full_page table {
   margin-top: 5px;
@@ -42,25 +52,36 @@
 .full_page table tbody tr:nth-child(even) {
   background-color: #dedede;
 }
-.full_page #tabs {
+#page_dashboard #col_right {
+  float: right;
+  padding-right: 6px;
+}
+#page_dashboard #col_center {
+  margin: 0 auto;
+}
+#page_dashboard #col_left {
+  float: left;
+  padding-left: 6px;
+}
+#page_dashboard .col {
+  width: 300px;
+}
+#page_dashboard #tabs {
   width: 90%;
   margin: auto;
 }
-.full_page .option3 {
+#page_dashboard .option3 {
   width: 33%;
 }
-.full_page .option2 {
+#page_dashboard .option2 {
   width: 48%;
   padding: 5px;
 }
-.full_page .option2 table {
+#page_dashboard .option2 table {
   width: 100%;
 }
-.full_page .option1 table {
+#page_dashboard .option1 table {
   width: 100%;
-}
-.page_panel .login_wrapper {
-  margin-top: 100px;
 }
 #ipad {
   background-image: url("http://politeauthority.com/remote/blackbox/images/main/gradient-1.png");
@@ -124,12 +145,6 @@ h1 {
 body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
-#wrap {
-  position: absolute;
-  width: 100%;
-  overflow: hidden;
-  margin-top: 10px;
-}
 #login {
   margin: 0 auto;
   width: 215px;
@@ -151,10 +166,6 @@ body {
   font-family: Helvetica;
   color: #fff;
   font-size: 24px;
-}
-.activated_panel {
-  display: block;
-  position: relative;
 }
 .loading {
   background-image: url("/../themes/tranquility/images/ui/ajax-loader.gif");
