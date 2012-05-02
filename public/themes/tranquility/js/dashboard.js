@@ -7,53 +7,45 @@ function Dashboard(socket,utilities){
     this.settings_controller
     this_class = this;
     /*this_class.tabs['Settings']*/
-    $('#dashboard_link').live('click', function(ev){
+    $('#nav ul li a').live('click', function(ev){
         ev.preventDefault();
-        active_panel = $('.active_panel')
-        active_panel.animate({
-            opacity: 1,
-            top: '+=-500'            
-        }, 500,function(){
-            console.log('before removeAttr')
-            console.log(active_panel)
-            active_panel.removeAttr('style').addClass('ready_animate').removeClass('active_panel');
+        var nav_button = $(this),
+            link_id = nav_button.attr('id');
+        if( nav_button.hasClass('deadButton') ){ return; }
+        if( link_id == 'dashboard_link' ){
+            var page_to_load = 'page_dashboard';
+            viewport_move( $('#page_dashboard') );
+        } else if( link_id == 'settings_link' ){
+            var page_to_load = 'page_settings'
+            ev.preventDefault();
+            if( $('#page_settings').length == '' ){
+                this_class.socket.emit('get_settings',{'test':'test2'})
+                this_class.socket.on('settings_loaded',function(settings_data){
+                    $('#viewport').append( settings_data['page'] );
+                    $('#page_settings').addClass('ready_animate');
+                    viewport_move( $('#page_settings') );
+                });
+            } else { viewport_move( $('#page_settings') ); }
+        }
+        update_nav( nav_button );
+    });
+
+    function update_nav( button ){
+        $('#nav').find('a').removeClass('deadButton');
+        button.addClass('deadButton');
+    }
+    function viewport_move( new_active_panel ){
+        var current_active_panel = $('.active_panel');
+        current_active_panel.animate({
+            opacity: 0,
+            top: '+=-300'
+        }, 400, function(){
+            current_active_panel.removeClass('active_panel').addClass('ready_animate').removeAttr('style');
         })
-        $('#page_dashboard').animate({
+        new_active_panel.animate({
             opacity: 1,
             top: '+=-1000'
-        }, 500).removeClass('ready_animate').addClass('active_panel');
-    });
-    $('#settings_link').live('click',function(ev){
-        ev.preventDefault();
-        console.log(  );
-        if( $('#page_settings').length == '' ){
-            this_class.socket.emit('get_settings',{'test':'test2'})
-            this_class.socket.on('settings_loaded',function(settings_data){
-                var active_panel = $('.active_panel');
-                active_panel.animate({
-                    opacity: 0.0,
-                    top: '+=-500'
-                    }, 500, function(){
-                        active_panel.removeClass('active_panel').addClass('ready_animate').removeAttr('style');
-                        $('#viewport').append( settings_data['page'] ).animate({
-                            opacity: 1,
-                        }, 500);
-                        $('#page_settings').addClass('active_panel').removeAttr('style');
-                    }
-                );
-            });
-        } else {
-            active_panel = $('.active_panel')
-            active_panel.animate({
-                opacity: 1,
-                top: '+=-500'            
-            }, 500, function(){
-                active_panel.removeClass('active_panel').addClass('ready_animate').removeAttr('style');
-            })
-            $('#page_settings').animate({
-                opacity: 1,
-                top: '+=-1000'
-            }, 500).removeClass('ready_animate').addClass('active_panel');            
-        }
-    });
+        }, 600);
+        new_active_panel.removeClass('ready_animate').addClass('active_panel');            
+    }
 };

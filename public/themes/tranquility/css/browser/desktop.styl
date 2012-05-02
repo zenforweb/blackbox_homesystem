@@ -3,67 +3,86 @@
   background-attachment fixed
   margin auto
   width 950px
+  background-image url('/../themes/tranquility/images/user/bg_user_1.jpg')
   #wrap
-    //border 8px solid yellow
+    widht 1050px
     height 400px
     #nav
       width 750px
       height 50px
       margin auto
-      //border 2px solid orange
+      margin-bottom 20px
+      background-image url('/../themes/tranquility/images/ui/black30.png');
+      border-bottom-radius(8px)
       ul
         float right
-    	li 
-    	  float left
-    	  list-style none
+        li 
+          float left
+          list-style none
+          padding 14px
+          a
+            color #CCCCCC
+            text-decoration none
+           .deadButton
+             color #4F4F4F
+          a:hover
+            color: #FFFFFF
     #viewport
- 	  overflow hidden
       position relative
       height 400px
-      //border 3px solid purple    
-	.page_panel
-		position absolute
-		width 100%
-	.ready_animate
-		top 1000px;	
-	.activated_panel
-	  display block
-	.page_hide
-	  opacity 0
-	.full_page
-	  table
-	  	margin-top 5px
-	  	margin-bottom 15px
-	  table thead tr td
-	    padding: 8px
-	  table tbody tr td
-	    padding: 4px
-	    vertical-align: middle
-	  table
-	  	tbody
-	  	  tr:nth-child(even)
-  		    background-color #dedede
-	#page_dashboard
-	  #col_right
-	  	float right
-	  	padding-right:6px
-	  #col_center
-	    margin 0 auto
-	  #col_left
-	    float left
-	    padding-left:6px
-	  .col
-	    width 300px
-	  #tabs
-	    width: 90%
-	    margin: auto
-	  .option3
-	  	width: 33%
-	  .option2
-	  	width 48%
-	  	padding 5px
-	  	table
-	  	  width 100%  	  
-	  .option1
-	    table
-	      width: 100%
+  .page_panel
+    position absolute
+    width 100%
+  .ready_animate
+    top 1000px
+    display none
+  .activated_panel
+    display block
+  .page_hide
+    opacity 0
+  .full_page
+    table
+    	margin-top 5px
+     	margin-bottom 15px
+    table thead tr td
+      padding: 8px
+    table tbody tr td
+      padding: 4px
+      vertical-align: middle
+    table
+    tbody
+    tr:nth-child(even)
+      background-color #dedede
+  #page_dashboard
+    #col_right
+      float right
+      padding-right:6px
+    #col_center
+      margin 0 auto
+    #col_left
+      float left
+      padding-left 6px
+    .col
+      width 300px
+      .portlet
+        margin-bottom 10px
+        .portlet-header
+          padding-top 5px
+          padding-bottom 5px
+          padding-left 3px
+         font-size 18px
+        .portlet-content
+          padding 5px
+  #tabs
+    width 90%
+    margin auto
+    .option3
+      width 33%
+    .option2
+      width 48%
+      padding 5px
+      table
+        width 100%  	  
+    .option1
+      table
+        width 100%

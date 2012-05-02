@@ -6,11 +6,17 @@ script(type='text/javascript')
 		$( '.portlet' ).addClass( 'ui-widget ui-widget-content ui-helper-clearfix ui-corner-all' )
 			.find( '.portlet-header' )
 				.addClass( 'ui-widget-header ui-corner-all' )
-				.prepend( '<span class="ui-icon ui-icon-minusthick"></span>')
+				.prepend( '<span class="floatRight ui-icon ui-icon-minusthick portlet_minimize"></span>')
+				.prepend( '<span class="floatRight ui-icon ui-icon-closethick portlet_close"></span>')
 				.end()
 			.find( '.portlet-content' );
-		$( '.portlet-header .ui-icon' ).click(function() {
+		$( '.portlet-header .portlet_minimize' ).click(function() {
 			$( this ).toggleClass( 'ui-icon-minusthick' ).toggleClass( 'ui-icon-plusthick' );
+			$( this ).parents( '.portlet:first' ).find( '.portlet-content' ).toggle();
+			//send minimized portlet event
+		});
+		$( '.portlet-header .portlet_close' ).click(function() {
+			//send closed portlet event
 			$( this ).parents( '.portlet:first' ).find( '.portlet-content' ).toggle();
 		});
 		$( '.col' ).disableSelection();
@@ -18,7 +24,7 @@ script(type='text/javascript')
 div#nav
 	ul
 		li 
-			a#dashboard_link(href='dashboard')|dashboard
+			a#dashboard_link.deadButton(href='dashboard')|dashboard
 		li
 			a#settings_link(href='settings')|settings
 	div.clearFix
@@ -26,21 +32,23 @@ div#viewport
 	div#page_dashboard.page_panel.active_panel.full_page
 		div#col_right.col
 			div.portlet
-				div.portlet-header|Feeds
+				div.portlet-header|Lab Cam
 				div.portlet-content
-					|Lorem ipsum dolor sit amet, consectetuer adipiscing elit	
+					|hello world
+					//iframe(src='http://brian:cleancut@10.1.10.50/cam_b')
 		div#col_left.col
 			div.portlet
-				div.portlet-header|Boom
+				div.portlet-header|Living Room
 				div.portlet-content
-					|Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+					|hello world
+					//iframe(src='http://brian:cleancut@10.1.10.50/cam_a')
 		div#col_center.col
+			div.portlet
+				div.portlet-header|Remote
+				div.portlet-content
+					|Remote
 			div.portlet
 				div.portlet-header|Weather
 				div.portlet-content
-					|Lorem ipsum dolor sit amet, consectetuer adipiscing elit
-			div.portlet
-				div.portlet-header|Boom
-				div.portlet-content
-					|Lorem ipsum dolor sit amet, consectetuer adipiscing elit
+					|54 &deg;
 		div(style='clear:both;')
