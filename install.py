@@ -1,4 +1,4 @@
-from  modules import apt_manager, src_manager
+from modules import apt_manager, node_manager
 
 import sys, os, datetime, pwd
 import json, subprocess
@@ -10,7 +10,7 @@ def log(line_to_log):
     log_file.write(datetime.datetime.strftime(datetime.datetime.now(),'%y-%M-%d %H:%M:%S')+line_to_log+'\n')
     print line_to_log
 
-def main(sys_args,uid,gid,sid,sgid):
+def main(sys_args):
     log('Opening Manifest')
     manifest = json.load(manifest_file)
     apt_packages = manifest['dependencies']
@@ -19,12 +19,12 @@ def main(sys_args,uid,gid,sid,sgid):
 
     log('Instantializing Apt_Manager to get BASE packages')
     apt_man = apt_manager.Apt_Manager()
-    node_installer = node_installer.Node_Installer(uid,gid,sid,sgid,node_config,log)
+    node_installer = node_installer.Node_Installer(node_config,log)
     for p2_install in apt_packages:
         log('Marking [%s] For Install' % (p2_install))
         apt_man.mark_package_for_install(p2_install)
     log('Installing All Marked Packages')
-    #apt_man.install_marked_packages()
+    apt_man.install_marked_packages()
 
     log('Starting NODEJS source compilation')
     if node_config['use_git'] == 1:
@@ -37,11 +37,7 @@ def main(sys_args,uid,gid,sid,sgid):
 
 if __name__ == "__main__":
     if 'SUDO_USER' in os.environ:
-        uid = pwd.getpwnam(os.environ['SUDO_USER'])[2]
-        gid = pwd.getpwnam(os.environ['SUDO_USER'])[4]
-        sid = pwd.getpwnam('sudo')[2]
-        sgid = pwd.getpwnam('sudo')[4]
-        main(sys.argv,uid,gid,sid,sgid)
+        main(sys.argv)
     else:
         log("need to run as sudo")
         sys.exit(0)
